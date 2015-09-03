@@ -8,7 +8,7 @@
  *
  * @version 1.6
  */
-class TZBA_Plugin_Updater {
+class TZBC_Plugin_Updater {
     private $api_url   = '';
     private $api_data  = array();
     private $name      = '';

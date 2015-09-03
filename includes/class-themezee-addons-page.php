@@ -33,8 +33,8 @@ class ThemeZee_Addons_Page {
 	static function add_addons_page() {
 			
 		add_theme_page(
-			__( 'ThemeZee Add-ons', 'themezee-boilerplate-addon' ),
-			__( 'Theme Add-ons', 'themezee-boilerplate-addon' ),
+			__( 'ThemeZee Add-ons', 'themezee-breadcrumbs' ),
+			__( 'Theme Add-ons', 'themezee-breadcrumbs' ),
 			'manage_options',
 			'themezee-add-ons',
 			array( __CLASS__, 'display_addons_page' ),
@@ -122,7 +122,7 @@ class ThemeZee_Addons_Page {
 	static function get_settings_tabs() {
 
 		$tabs                 = array();
-		$tabs['overview']      = __( 'Overview', 'themezee-boilerplate-addon' );
+		$tabs['overview']      = __( 'Overview', 'themezee-breadcrumbs' );
 		
 		return apply_filters( 'themezee_addons_settings_tabs', $tabs );
 	}
@@ -140,7 +140,7 @@ class ThemeZee_Addons_Page {
 			return;
 				
 		// Enqueue Admin CSS
-		wp_enqueue_style( 'themezee-addons-stylesheet', TZBA_PLUGIN_URL . '/assets/css/themezee-addons.css', array(), TZBA_VERSION );
+		wp_enqueue_style( 'themezee-addons-stylesheet', TZBC_PLUGIN_URL . '/assets/css/themezee-addons.css', array(), TZBC_VERSION );
 		
 	}
 	

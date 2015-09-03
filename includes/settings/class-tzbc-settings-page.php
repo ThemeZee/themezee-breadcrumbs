@@ -1,17 +1,17 @@
 <?php
 /***
- * TZBA Settings Page Class
+ * TZBC Settings Page Class
  *
  * Adds a new tab on the themezee addons page and displays the settings page.
  *
- * @package ThemeZee Boilerplate Addon
+ * @package ThemeZee Breadcrumbs
  */
  
 
 // Use class to avoid namespace collisions
-if ( ! class_exists('TZBA_Settings_Page') ) :
+if ( ! class_exists('TZBC_Settings_Page') ) :
 
-class TZBA_Settings_Page {
+class TZBC_Settings_Page {
 
 	/**
 	 * Setup the Settings Page class
@@ -24,7 +24,7 @@ class TZBA_Settings_Page {
 		add_filter( 'themezee_addons_settings_tabs', array( __CLASS__, 'add_settings_page' ) );
 		
 		// Hook settings page to addon page
-		add_action( 'themezee_addons_page_boilerplate', array( __CLASS__, 'display_settings_page' ) );
+		add_action( 'themezee_addons_page_breadcrumbs', array( __CLASS__, 'display_settings_page' ) );
 		
 		// Enqueue Admin Page Styles
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_admin_scripts' ) );
@@ -37,8 +37,8 @@ class TZBA_Settings_Page {
 	*/
 	static function add_settings_page($tabs) {
 			
-		// Add Boilerplate Settings Page to Tabs List
-		$tabs['boilerplate']      = __( 'Boilerplate', 'themezee-boilerplate-addon' );
+		// Add Breadcrumbs Settings Page to Tabs List
+		$tabs['breadcrumbs']      = __( 'Breadcrumbs', 'themezee-breadcrumbs' );
 		
 		return $tabs;
 		
@@ -54,15 +54,15 @@ class TZBA_Settings_Page {
 		ob_start();
 	?>
 		
-		<div id="tzba-settings" class="tzba-settings-wrap">
+		<div id="tzbc-settings" class="tzbc-settings-wrap">
 			
-			<h2><?php _e( 'ThemeZee Boilerplate Addon', 'themezee-boilerplate-addon' ); ?></h2>
+			<h2><?php _e( 'ThemeZee Breadcrumbs', 'themezee-breadcrumbs' ); ?></h2>
 			<?php settings_errors(); ?>
 			
-			<form class="tzba-settings-form" method="post" action="options.php">
+			<form class="tzbc-settings-form" method="post" action="options.php">
 				<?php
-					settings_fields('tzba_settings');
-					do_settings_sections('tzba_settings');
+					settings_fields('tzbc_settings');
+					do_settings_sections('tzbc_settings');
 					submit_button();
 				?>
 			</form>
@@ -84,13 +84,13 @@ class TZBA_Settings_Page {
 			return;
 				
 		// Enqueue Admin CSS
-		wp_enqueue_script( 'tzwb-settings-file-upload', TZBA_PLUGIN_URL . '/assets/js/upload-setting.js', array(), TZBA_VERSION );
+		wp_enqueue_script( 'tzwb-settings-file-upload', TZBC_PLUGIN_URL . '/assets/js/upload-setting.js', array(), TZBC_VERSION );
 		
 	}
 	
 }
 
-// Run TZBA Settings Page Class
-TZBA_Settings_Page::setup();
+// Run TZBC Settings Page Class
+TZBC_Settings_Page::setup();
 
 endif;
