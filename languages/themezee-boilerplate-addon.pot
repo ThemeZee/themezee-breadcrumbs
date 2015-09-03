@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Lean Custom Content Types\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-24 11:12+0100\n"
+"PO-Revision-Date: 2014-08-24 11:12+0100\n"
+"Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
+"Language-Team: ThemeZee <contact@themezee.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_x;_ex;_n;esc_attr_e;esc_attr__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: class-jetpack-portfolio.php:105 class-jetpack-portfolio.php:126
+msgid "Your Custom Content Types"
+msgstr ""
+
+#: class-jetpack-portfolio.php:112 class-jetpack-portfolio.php:133
+msgid "Portfolio Projects"
+msgstr ""
+
+#: class-jetpack-portfolio.php:167
+#, php-format
+msgid "Your theme supports <strong>%s</strong>"
+msgstr ""
+
+#: class-jetpack-portfolio.php:182
+#, php-format
+msgid "Portfolio pages display at most %1$s projects"
+msgstr ""
+
+#: class-jetpack-portfolio.php:191
+#, php-format
+msgid ""
+"You need to <a href=\"%s\">enable portfolio</a> custom post type before you "
+"can update it's settings."
+msgstr ""
+
+#: class-jetpack-portfolio.php:273
+msgid "Portfolio Items"
+msgstr ""
+
+#: class-jetpack-portfolio.php:373
+#, php-format
+msgid "Project updated. <a href=\"%s\">View item</a>"
+msgstr ""
+
+#: class-jetpack-portfolio.php:379
+#, php-format
+msgid "Project published. <a href=\"%s\">View project</a>"
+msgstr ""
+
+#: class-jetpack-portfolio.php:381
+#, php-format
+msgid "Project submitted. <a target=\"_blank\" href=\"%s\">Preview project</a>"
+msgstr ""
+
+#: class-jetpack-portfolio.php:382
+#, php-format
+msgid ""
+"Project scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
+"\"%2$s\">Preview project</a>"
+msgstr ""
+
+#: class-jetpack-portfolio.php:384 class-jetpack-testimonial.php:153
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: class-jetpack-portfolio.php:385
+#, php-format
+msgid ""
+"Project item draft updated. <a target=\"_blank\" href=\"%s\">Preview "
+"project</a>"
+msgstr ""
+
+#: class-jetpack-portfolio.php:397
+msgid "Project"
+msgstr ""
+
+#: class-jetpack-portfolio.php:600
+msgid ""
+"Your Portfolio Archive currently has no entries. You can start creating them "
+"on your dashboard."
+msgstr ""
+
+#: class-jetpack-portfolio.php:666
+msgid "Types"
+msgstr ""
+
+#: class-jetpack-portfolio.php:697
+msgid "Tags"
+msgstr ""
+
+#: class-jetpack-testimonial.php:76
+msgid "Customer Testimonials"
+msgstr ""
+
+#: class-jetpack-testimonial.php:142
+#, php-format
+msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
+msgstr ""
+
+#: class-jetpack-testimonial.php:148
+#, php-format
+msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
+msgstr ""
+
+#: class-jetpack-testimonial.php:150
+#, php-format
+msgid ""
+"Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</"
+"a>"
+msgstr ""
+
+#: class-jetpack-testimonial.php:151
+#, php-format
+msgid ""
+"Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
+"\"%2$s\">Preview testimonial</a>"
+msgstr ""
+
+#: class-jetpack-testimonial.php:154
+#, php-format
+msgid ""
+"Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview "
+"testimonial</a>"
+msgstr ""

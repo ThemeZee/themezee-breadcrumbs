@@ -1,0 +1,81 @@
+
+/* Clearing Floats */
+.themezee-addons-clearfix:before, .themezee-addons-clearfix:after {  
+	content: " ";
+	display: table;  
+}  
+.themezee-addons-clearfix:after {  
+	clear: both;
+}  
+.themezee-addons-clearfix {
+    *zoom: 1; /* For IE 6/7 only */  
+}
+
+/* Layout */
+.themezee-addons-tab-content {
+	margin-top: 16px;
+}
+
+/* Add-on Overview List */
+#themezee-addons-list {
+	margin-top: 12px;
+	max-width: 1100px;
+}
+
+#themezee-addons-list dl {
+	float: left;
+	margin: 0;
+	padding: 0 20px 20px 0;
+	width: 50%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#themezee-addons-list dt {
+	font-size: 14px;
+    line-height: 1.4em;
+    margin: 0;
+    padding: 8px 12px;
+	background: #fff;
+	color: #222;
+	border: 1px solid #e5e5e5;
+	border-bottom: 1px solid #eee;
+}
+#themezee-addons-list dt h4 {
+	padding: 0;
+	margin: 0;
+}
+#themezee-addons-list dd {
+	margin: 0;
+	padding: 12px;
+	font-size: 14px;
+    line-height: 1.4em;
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	border-top: none;
+}
+#themezee-addons-list dd p {
+	margin: 0 0 12px;
+}
+#themezee-addons-list dd ul {
+	margin: 4px 0 4px;
+	list-style: inside circle;
+}
+
+/* Media Query | <1200px */
+@media only screen and (max-width: 1200px) {
+
+}
+/* Media Query | <980px */
+@media only screen and (max-width: 980px) {
+
+}
+/* Media Query | <782px */
+@media only screen and (max-width: 782px) {
+
+
+}
+/* Media Query | <600px */
+@media only screen and (max-width: 600px) {
+
+}
