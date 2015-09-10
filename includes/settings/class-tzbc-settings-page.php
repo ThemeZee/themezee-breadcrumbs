@@ -56,7 +56,7 @@ class TZBC_Settings_Page {
 		
 		<div id="tzbc-settings" class="tzbc-settings-wrap">
 			
-			<h2><?php _e( 'ThemeZee Breadcrumbs', 'themezee-breadcrumbs' ); ?></h2>
+			<h2><?php _e( 'Breadcrumbs', 'themezee-breadcrumbs' ); ?></h2>
 			<?php settings_errors(); ?>
 			
 			<form class="tzbc-settings-form" method="post" action="options.php">

@@ -2,7 +2,7 @@
 /*
 Plugin Name: ThemeZee Breadcrumbs
 Plugin URI: http://themezee.com/add-ons/breadcrumbs/
-Description: This plugin automatically detects your permalink setup and displays breadcrumbs based off that structure. Nearly all sites have some sort of hierarchy. Breadcrumb Trail recognizes that and builds a set of unique breadcrumbs for each page on your site.
+Description: This plugin automatically detects your permalink setup and displays breadcrumbs based off that structure. Breadcrumb Trail recognizes your website hierarchy and builds a set of unique breadcrumbs for each page on your site.
 Author: ThemeZee
 Author URI: http://themezee.com/
 Version: 1.0
@@ -153,16 +153,15 @@ class ThemeZee_Breadcrumbs {
 		
 		?>
 
-		<dl><dt><h4><?php echo esc_html( $plugin_data['Name'] ); ?> <?php echo esc_html( $plugin_data['Version'] ); ?></h4></dt>
+		<dl>
+			<dt>
+				<h4><?php echo esc_html( $plugin_data['Name'] ); ?></h4>
+				<span><?php printf( __( 'Version %s', 'themezee-breadcrumbs'),  esc_html( $plugin_data['Version'] ) ); ?></span>
+			</dt>
 			<dd>
-				<p>
-					<?php echo wp_kses_post( $plugin_data['Description'] ); ?><br/>
-				</p>
-				<p>
-					<a href="<?php echo admin_url( 'admin.php?page=themezee-add-ons&tab=breadcrumbs' ); ?>" class="button button-primary"><?php _e('Plugin Settings', 'themezee-breadcrumbs'); ?></a> 
-					<a href="<?php echo admin_url( 'plugins.php?s=ThemeZee+Breadcrumbs' ); ?>" class="button button-secondary"><?php _e('Deactivate', 'themezee-breadcrumbs'); ?></a>
-				</p>
-				
+				<p><?php echo wp_kses_post( $plugin_data['Description'] ); ?><br/></p>
+				<a href="<?php echo admin_url( 'admin.php?page=themezee-addons&tab=breadcrumbs' ); ?>" class="button button-primary"><?php _e('Plugin Settings', 'themezee-breadcrumbs'); ?></a> 
+				<a href="<?php echo esc_url( 'http://themezee.com/docs/breadcrumbs/'); ?>" class="button button-secondary" target="_blank"><?php _e('View Documentation', 'themezee-breadcrumbs'); ?></a>
 			</dd>
 		</dl>
 		
