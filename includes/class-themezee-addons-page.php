@@ -4,8 +4,12 @@
  *
  * Registers and displays the ThemeZee Addons Page
  *
+ * @package ThemeZee Breadcrumbs
  */
  
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 
 // Use class to avoid namespace collisions
 if ( ! class_exists('ThemeZee_Addons_Page') ) :
@@ -36,8 +40,8 @@ class ThemeZee_Addons_Page {
 	static function add_addons_page() {
 			
 		add_theme_page(
-			__( 'ThemeZee Add-ons', 'themezee-widget-bundle' ),
-			__( 'Theme Add-ons', 'themezee-widget-bundle' ),
+			__( 'ThemeZee Add-ons', 'themezee-breadcrumbs' ),
+			__( 'Theme Add-ons', 'themezee-breadcrumbs' ),
 			'manage_options',
 			'themezee-addons',
 			array( __CLASS__, 'display_addons_page' )
@@ -111,9 +115,9 @@ class ThemeZee_Addons_Page {
 		
 		<div id="themezee-addons-overview">
 		
-			<h2 id="themezee-addon-header"><?php _e( 'ThemeZee Add-ons', 'themezee-widget-bundle' ); ?></h2>
+			<h2 id="themezee-addon-header"><?php _e( 'ThemeZee Add-ons', 'themezee-breadcrumbs' ); ?></h2>
 			<div class="themezee-addons-intro">
-				<?php printf( __( 'You need more features and functionality? Extend your website with our affordable %s.', 'themezee-widget-bundle' ), $addon_link ); ?>
+				<?php printf( __( 'You need more features and functionality? Extend your website with our affordable %s.', 'themezee-breadcrumbs' ), $addon_link ); ?>
 			</div>
 			<hr/>
 
@@ -136,7 +140,7 @@ class ThemeZee_Addons_Page {
 	static function get_settings_tabs() {
 
 		$tabs                 = array();
-		$tabs['overview']      = __( 'Overview', 'themezee-widget-bundle' );
+		$tabs['overview']      = __( 'Overview', 'themezee-breadcrumbs' );
 		
 		return apply_filters( 'themezee_addons_settings_tabs', $tabs );
 	}
@@ -154,7 +158,7 @@ class ThemeZee_Addons_Page {
 			return;
 				
 		// Enqueue Admin CSS
-		wp_enqueue_style( 'themezee-addons-stylesheet', TZWB_PLUGIN_URL . '/assets/css/themezee-addons.css', array(), TZWB_VERSION );
+		wp_enqueue_style( 'themezee-addons-stylesheet', TZBC_PLUGIN_URL . 'assets/css/themezee-addons.css', array(), TZBC_VERSION );
 		
 	}
 	

@@ -9,8 +9,11 @@
  * @package ThemeZee Breadcrumbs
  */
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
- /* Use class to avoid namespace collisions */
+
+// Use class to avoid namespace collisions
 if ( ! class_exists('TZBC_Settings') ) :
 
 class TZBC_Settings {

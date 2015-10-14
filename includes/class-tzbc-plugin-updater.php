@@ -1,7 +1,8 @@
 <?php
 
-// uncomment this line for testing
-//set_site_transient( 'update_plugins', null );
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 
 /**
  * Allows plugins to use their own update API.
