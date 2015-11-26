@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 // Use class to avoid namespace collisions
-if ( ! class_exists('TZBC_Settings_Page') ) :
+if ( ! class_exists( 'TZBC_Settings_Page' ) ) :
 
 class TZBC_Settings_Page {
 
@@ -28,9 +28,6 @@ class TZBC_Settings_Page {
 		
 		// Hook settings page to addon page
 		add_action( 'themezee_addons_page_breadcrumbs', array( __CLASS__, 'display_settings_page' ) );
-		
-		// Enqueue Admin Page Styles
-		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_admin_scripts' ) );
 	}
 
 	/**
@@ -41,7 +38,7 @@ class TZBC_Settings_Page {
 	static function add_settings_page($tabs) {
 			
 		// Add Breadcrumbs Settings Page to Tabs List
-		$tabs['breadcrumbs']      = __( 'Breadcrumbs', 'themezee-breadcrumbs' );
+		$tabs['breadcrumbs'] = esc_html__( 'Breadcrumbs', 'themezee-breadcrumbs' );
 		
 		return $tabs;
 		
@@ -59,7 +56,7 @@ class TZBC_Settings_Page {
 		
 		<div id="tzbc-settings" class="tzbc-settings-wrap">
 			
-			<h2><?php _e( 'Breadcrumbs', 'themezee-breadcrumbs' ); ?></h2>
+			<h1><?php esc_html_e( 'Breadcrumbs', 'themezee-breadcrumbs' ); ?></h1>
 			<?php settings_errors(); ?>
 			
 			<form class="tzbc-settings-form" method="post" action="options.php">
@@ -73,22 +70,6 @@ class TZBC_Settings_Page {
 		</div>
 <?php
 		echo ob_get_clean();
-	}
-	
-	/**
-	 * Enqueue file upload js on settings page
-	 *
-	 * @return void
-	*/
-	static function enqueue_admin_scripts( $hook ) {
-
-		// Embed stylesheet only on admin settings page
-		if( 'appearance_page_themezee-add-ons' != $hook )
-			return;
-				
-		// Enqueue Admin CSS
-		wp_enqueue_script( 'tzwb-settings-file-upload', TZBC_PLUGIN_URL . '/assets/js/upload-setting.js', array(), TZBC_VERSION );
-		
 	}
 	
 }

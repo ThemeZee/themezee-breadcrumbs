@@ -1,4 +1,30 @@
 /*
- * Business Content Widgets Stylesheet
+ * ThemeZee Breadcrumbs
+ * http://themezee.com/addons/breadcrumbs/
  *
+ * Copyright(C) 2015, ThemeZee.com - support@themezee.com
+ * License: GPL v3
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * @package ThemeZee Breadcrumbs
  */
+
+ 
+/*--------------------------------------------------------------
+# General Styles
+---------------------------------------------------------------- */
+
+/* Clearing Floats */
+.tzbc-clearfix:before, 
+.tzbc-clearfix:after {  
+	content: " ";
+	display: table;  
+}  
+
+.tzbc-clearfix:after {  
+	clear: both;
+}  
+
+.tzbc-clearfix {
+    *zoom: 1; /* For IE 6/7 only */  
+}

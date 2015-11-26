@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: ThemeZee Breadcrumbs
-Plugin URI: http://themezee.com/add-ons/breadcrumbs/
-Description: This plugin automatically detects your permalink setup and displays breadcrumbs based off that structure. Breadcrumb Trail recognizes your website hierarchy and builds a set of unique breadcrumbs for each page on your site.
+Plugin URI: http://themezee.com/addons/breadcrumbs/
+Description: A collection of our most popular widgets, neatly bundled into a single plugin. The Plugin includes advanced widgets for Recent Posts, Recent Comments, Facebook Likebox, Tabbed Content, Social Icons and more.
 Author: ThemeZee
 Author URI: http://themezee.com/
 Version: 1.0
@@ -11,6 +11,7 @@ Domain Path: /languages/
 License: GPL v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
+ThemeZee Breadcrumbs
 Copyright(C) 2015, ThemeZee.com - support@themezee.com
 
 */
@@ -19,40 +20,37 @@ Copyright(C) 2015, ThemeZee.com - support@themezee.com
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Use class to avoid namespace collisions
-if ( ! class_exists('ThemeZee_Breadcrumbs') ) :
+if ( ! class_exists( 'ThemeZee_Breadcrumbs' ) ) :
+
 
 /**
  * Main ThemeZee_Breadcrumbs Class
  *
- * @since 1.0
+ * @package ThemeZee Breadcrumbs
  */
 class ThemeZee_Breadcrumbs {
 
 	/**
-	 * ThemeZee Breadcrumbs Setup
+	 * Call all Functions to setup the Plugin
 	 *
-	 * Calls all Functions to setup the Plugin
-	 *
-	 * @since 1.0
-	 * @static
 	 * @uses ThemeZee_Breadcrumbs::constants() Setup the constants needed
 	 * @uses ThemeZee_Breadcrumbs::includes() Include the required files
 	 * @uses ThemeZee_Breadcrumbs::setup_actions() Setup the hooks and actions
-	 * @uses ThemeZee_Breadcrumbs::updater() Setup the plugin updater
+	 * @return void
 	 */
 	static function setup() {
 	
 		// Setup Constants
 		self::constants();
 		
+		// Setup Translation
+		add_action( 'plugins_loaded', array( __CLASS__, 'translation' ) );
+	
 		// Include Files
 		self::includes();
 		
 		// Setup Action Hooks
 		self::setup_actions();
-		
-		// Load Translation File
-		load_plugin_textdomain( 'themezee-breadcrumbs', false, dirname(plugin_basename(__FILE__)) );
 		
 	}
 	
@@ -60,19 +58,18 @@ class ThemeZee_Breadcrumbs {
 	/**
 	 * Setup plugin constants
 	 *
-	 * @since 1.0
 	 * @return void
 	 */
 	static function constants() {
 		
 		// Define Plugin Name
-		define( 'TZBC_NAME', 'ThemeZee Breadcrumbs');
+		define( 'TZBC_NAME', 'ThemeZee Breadcrumbs' );
 
 		// Define Version Number
 		define( 'TZBC_VERSION', '1.0' );
 		
 		// Define Plugin Name
-		define( 'TZBC_PRODUCT_ID', 0);
+		define( 'TZBC_PRODUCT_ID', 99999 );
 
 		// Define Update API URL
 		define( 'TZBC_STORE_API_URL', 'https://themezee.com' ); 
@@ -88,10 +85,22 @@ class ThemeZee_Breadcrumbs {
 		
 	}
 	
+	
+	/**
+	 * Load Translation File
+	 *
+	 * @return void
+	 */
+	static function translation() {
+
+		load_plugin_textdomain( 'themezee-breadcrumbs', false, dirname( plugin_basename( TZBC_PLUGIN_FILE ) ) . '/languages/' );
+		
+	}
+	
+	
 	/**
 	 * Include required files
 	 *
-	 * @since 1.0
 	 * @return void
 	 */
 	static function includes() {
@@ -110,7 +119,7 @@ class ThemeZee_Breadcrumbs {
 	/**
 	 * Setup Action Hooks
 	 *
-	 * @since 1.0
+	 * @see https://codex.wordpress.org/Function_Reference/add_action WordPress Codex
 	 * @return void
 	 */
 	static function setup_actions() {
@@ -118,35 +127,39 @@ class ThemeZee_Breadcrumbs {
 		// Enqueue Frontend Widget Styles
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ) );
 		
-		// Add Widget Bundle Box to Add-on Overview Page
+		// Add Breadcrumbs Addon Box to Add-on Overview Page
 		add_action('themezee_addons_overview_page', array( __CLASS__, 'addon_overview_page' ) );
+		
+		// Add License Key admin notice
+		add_action('admin_notices', array( __CLASS__, 'license_key_admin_notice' ) );
 		
 		// Add automatic plugin updater from ThemeZee Store API
 		add_action( 'admin_init', array( __CLASS__, 'plugin_updater' ), 0 );
 		
 	}
-	
-	/* Enqueue Widget Styles */
+
+	/**
+	 * Enqueue Styles
+	 *
+	 * @return void
+	 */
 	static function enqueue_styles() {
-	
-		// Enqueue BCW Plugin Stylesheet
-		wp_enqueue_style('themezee-breadcrumbs', self::get_stylesheet() );
+		
+		// Return early if theme handles styling
+		if ( current_theme_supports( 'themezee-breadcrumbs' ) ) :
+			return;
+		endif;
+		
+		// Enqueue Plugin Stylesheet
+		wp_enqueue_style( 'themezee-breadcrumbs', TZBC_PLUGIN_URL . 'assets/css/themezee-breadcrumbs.css', array(), TZBC_VERSION );
 		
 	}
 	
-	/* Get Stylesheet URL */
-	static function get_stylesheet() {
-		
-		if ( file_exists( get_stylesheet_directory() . '/css/themezee-breadcrumbs.css' ) )
-			$stylesheet = get_stylesheet_directory() . '/css/themezee-breadcrumbs.css';
-		elseif ( file_exists( get_template_directory() . '/css/themezee-breadcrumbs.css' ) )
-			$stylesheet = get_template_directory() . '/css/themezee-breadcrumbs.css';
-		else 
-			$stylesheet = TZBC_PLUGIN_URL . '/assets/css/themezee-breadcrumbs.css';
-		
-		return $stylesheet;
-	}
-	
+	/**
+	 * Add widget bundle box to addon overview admin page
+	 *
+	 * @return void
+	 */
 	static function addon_overview_page() { 
 	
 		$plugin_data = get_plugin_data( __FILE__ );
@@ -156,18 +169,50 @@ class ThemeZee_Breadcrumbs {
 		<dl>
 			<dt>
 				<h4><?php echo esc_html( $plugin_data['Name'] ); ?></h4>
-				<span><?php printf( __( 'Version %s', 'themezee-breadcrumbs'),  esc_html( $plugin_data['Version'] ) ); ?></span>
+				<span><?php printf( esc_html__( 'Version %s', 'themezee-breadcrumbs' ),  esc_html( $plugin_data['Version'] ) ); ?></span>
 			</dt>
 			<dd>
 				<p><?php echo wp_kses_post( $plugin_data['Description'] ); ?><br/></p>
-				<a href="<?php echo admin_url( 'admin.php?page=themezee-addons&tab=breadcrumbs' ); ?>" class="button button-primary"><?php _e('Plugin Settings', 'themezee-breadcrumbs'); ?></a> 
-				<a href="<?php echo esc_url( 'http://themezee.com/docs/breadcrumbs/'); ?>" class="button button-secondary" target="_blank"><?php _e('View Documentation', 'themezee-breadcrumbs'); ?></a>
+				<a href="<?php echo admin_url( 'admin.php?page=themezee-addons&tab=breadcrumbs' ); ?>" class="button button-primary"><?php esc_html_e( 'Plugin Settings', 'themezee-breadcrumbs' ); ?></a>&nbsp;
+				<a href="<?php echo esc_url( 'http://themezee.com/docs/breadcrumbs/' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'View Documentation', 'themezee-breadcrumbs' ); ?></a>
 			</dd>
 		</dl>
 		
 		<?php
 	}
 	
+	/**
+	 * Add license key admin notice
+	 *
+	 * @return void
+	 */
+	static function license_key_admin_notice() { 
+	
+		global $pagenow;
+	
+		// Display only on Plugins page
+		if ( 'plugins.php' !== $pagenow  ) {
+			return;
+		}
+		
+		// Get Settings
+		$options = TZBC_Settings::instance();
+		
+		if( '' == $options->get( 'license_key' ) ) : ?>
+			
+			<div class="updated">
+				<p>
+					<?php printf( __( 'Please enter your license key for the %1$s add-on in order to receive updates and support. <a href="%2$s">Enter License Key</a>', 'themezee-breadcrumbs' ),
+						TZBC_NAME,
+						admin_url( 'themes.php?page=themezee-addons&tab=breadcrumbs' ) ); 
+					?>
+				</p>
+			</div>
+			
+		<?php
+		endif;
+	
+	}
 	
 	/**
 	 * Plugin Updater
@@ -182,9 +227,9 @@ class ThemeZee_Breadcrumbs {
 		
 		$options = TZBC_Settings::instance();
 
-		if( $options->get('license_key') <> '') :
+		if( $options->get( 'license_key' ) <> '' ) :
 			
-			$license_key = $options->get('license_key');
+			$license_key = $options->get( 'license_key' );
 			
 			// setup the updater
 			$tzbc_updater = new TZBC_Plugin_Updater( TZBC_STORE_API_URL, __FILE__, array(
@@ -202,7 +247,7 @@ class ThemeZee_Breadcrumbs {
 	
 }
 
-/* Run Plugin */
+// Run Plugin
 ThemeZee_Breadcrumbs::setup();
 
 endif;

@@ -1,130 +1,310 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Lean Custom Content Types\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-24 11:12+0100\n"
-"PO-Revision-Date: 2014-08-24 11:12+0100\n"
-"Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
-"Language-Team: ThemeZee <contact@themezee.com>\n"
+"Project-Id-Version: ThemeZee Breadcrumbs\n"
+"Report-Msgid-Bugs-To: http://themezee.com/\n"
+"POT-Creation-Date: 2015-11-26 10:33+0100\n"
+"PO-Revision-Date: 2015-11-26 10:33+0100\n"
+"Last-Translator: \n"
+"Language-Team: ThemeZee <support@themezee.com>\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;_x;_ex;_n;esc_attr_e;esc_attr__\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: class-jetpack-portfolio.php:105 class-jetpack-portfolio.php:126
-msgid "Your Custom Content Types"
-msgstr ""
-
-#: class-jetpack-portfolio.php:112 class-jetpack-portfolio.php:133
-msgid "Portfolio Projects"
-msgstr ""
-
-#: class-jetpack-portfolio.php:167
+#: themezee-breadcrumbs.php:172
 #, php-format
-msgid "Your theme supports <strong>%s</strong>"
+msgid "Version %s"
 msgstr ""
 
-#: class-jetpack-portfolio.php:182
-#, php-format
-msgid "Portfolio pages display at most %1$s projects"
+#: themezee-breadcrumbs.php:176
+msgid "Plugin Settings"
 msgstr ""
 
-#: class-jetpack-portfolio.php:191
-#, php-format
-msgid ""
-"You need to <a href=\"%s\">enable portfolio</a> custom post type before you "
-"can update it's settings."
+#: themezee-breadcrumbs.php:177
+msgid "View Documentation"
 msgstr ""
 
-#: class-jetpack-portfolio.php:273
-msgid "Portfolio Items"
-msgstr ""
-
-#: class-jetpack-portfolio.php:373
-#, php-format
-msgid "Project updated. <a href=\"%s\">View item</a>"
-msgstr ""
-
-#: class-jetpack-portfolio.php:379
-#, php-format
-msgid "Project published. <a href=\"%s\">View project</a>"
-msgstr ""
-
-#: class-jetpack-portfolio.php:381
-#, php-format
-msgid "Project submitted. <a target=\"_blank\" href=\"%s\">Preview project</a>"
-msgstr ""
-
-#: class-jetpack-portfolio.php:382
+#: themezee-breadcrumbs.php:205
 #, php-format
 msgid ""
-"Project scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
-"\"%2$s\">Preview project</a>"
+"Please enter your license key for the %1$s add-on in order to receive "
+"updates and support. <a href=\"%2$s\">Enter License Key</a>"
 msgstr ""
 
-#: class-jetpack-portfolio.php:384 class-jetpack-testimonial.php:153
-msgid "M j, Y @ G:i"
+#: includes/class-themezee-addons-page.php:43
+#: includes/class-themezee-addons-page.php:113
+#: includes/class-themezee-addons-page.php:118
+msgid "ThemeZee Add-ons"
 msgstr ""
 
-#: class-jetpack-portfolio.php:385
+#: includes/class-themezee-addons-page.php:44
+msgid "Theme Add-ons"
+msgstr ""
+
+#: includes/class-themezee-addons-page.php:113
+msgid "add-ons"
+msgstr ""
+
+#: includes/class-themezee-addons-page.php:120
 #, php-format
 msgid ""
-"Project item draft updated. <a target=\"_blank\" href=\"%s\">Preview "
-"project</a>"
+"You need more features and functionality? Extend your website with our "
+"customized %s."
 msgstr ""
 
-#: class-jetpack-portfolio.php:397
-msgid "Project"
+#: includes/class-themezee-addons-page.php:143
+msgid "Overview"
 msgstr ""
 
-#: class-jetpack-portfolio.php:600
-msgid ""
-"Your Portfolio Archive currently has no entries. You can start creating them "
-"on your dashboard."
-msgstr ""
-
-#: class-jetpack-portfolio.php:666
-msgid "Types"
-msgstr ""
-
-#: class-jetpack-portfolio.php:697
-msgid "Tags"
-msgstr ""
-
-#: class-jetpack-testimonial.php:76
-msgid "Customer Testimonials"
-msgstr ""
-
-#: class-jetpack-testimonial.php:142
-#, php-format
-msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
-msgstr ""
-
-#: class-jetpack-testimonial.php:148
-#, php-format
-msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
-msgstr ""
-
-#: class-jetpack-testimonial.php:150
+#: includes/class-tzbc-plugin-updater.php:177
 #, php-format
 msgid ""
-"Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</"
-"a>"
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
 msgstr ""
 
-#: class-jetpack-testimonial.php:151
+#: includes/class-tzbc-plugin-updater.php:184
 #, php-format
 msgid ""
-"Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
-"\"%2$s\">Preview testimonial</a>"
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
 msgstr ""
 
-#: class-jetpack-testimonial.php:154
+#: includes/class-tzbc-plugin-updater.php:324
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: includes/class-tzbc-plugin-updater.php:324
+msgid "Error"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings-page.php:44
+#: includes/settings/class-tzbc-settings-page.php:62
+msgid "Breadcrumbs"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:132
+msgid "General"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:133
+msgid "Example 1"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:134
+msgid "Example 2"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:135
+msgid "License"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:175
+msgid "Configure the Breadcrumbs Addon."
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:185
 #, php-format
 msgid ""
-"Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview "
-"testimonial</a>"
+"Please enter your license key. An active license key is needed for automatic "
+"plugin updates and <a href=\"%s\" target=\"_blank\">support</a>."
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:286
+msgid "Textfield"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:287
+msgid "Displays a textfield setting. "
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:293
+msgid "Textfield Small"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:294
+msgid "Displays a small textfield setting. "
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:301
+msgid "Textfield Large"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:302
+msgid "Displays a large textfield setting. "
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:309
+msgid "Radio Buttons"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:310
+msgid "Shows an example radio button control. "
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:314
+msgid "Radio Setting 1"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:315
+msgid "Radio Setting 2"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:316
+msgid "Radio Setting 3"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:321
+msgid "Checkbox"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:322
+msgid "Displays an example checkbox (default = true). "
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:328
+msgid "Checkbox 2"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:329
+msgid "Displays a second example checkbox (default = false). "
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:335
+msgid "Textarea"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:336
+msgid "Displays a textarea. "
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:340
+msgid "Default Text"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:343
+msgid "Textarea HTML"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:344
+msgid "Displays a HTML textarea. "
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:348
+msgid "Default HTML"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:351
+msgid "Select Field"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:352
+msgid "Shows an example select field control. "
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:356
+msgid "Select Setting 1"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:357
+msgid "Select Setting 2"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:358
+msgid "Select Setting 3"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:363
+msgid "Multi Checkbox"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:364
+msgid "Select multiple checkboxes."
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:368
+msgid "Checkbox Setting 1"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:369
+msgid "Checkbox Setting 2"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:370
+msgid "Checkbox Setting 3"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:375
+msgid "Number"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:376
+msgid "Example number setting"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:385
+msgid "File Upload"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:386
+msgid "Example uploader"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:392
+msgid "Missing Callback"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:393
+msgid "No Setting exists for that type"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:399
+msgid "Editor"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:405
+msgid "License Key"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:531
+msgid "Deactivate License"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:532
+msgid "Your license is valid!"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:535
+msgid "Renew Your License"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:536
+msgid ""
+"Your license has expired, renew today to continue getting updates and "
+"support!"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:538
+#: includes/settings/class-tzbc-settings.php:541
+msgid "Activate License"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:539
+msgid "Your license is invalid!"
+msgstr ""
+
+#: includes/settings/class-tzbc-settings.php:635
+#, php-format
+msgid ""
+"The callback function used for the <strong>%s</strong> setting is missing."
 msgstr ""

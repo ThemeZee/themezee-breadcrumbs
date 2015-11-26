@@ -129,9 +129,10 @@ class TZBC_Settings {
 		}
 		
 		// Add Sections
+		add_settings_section( 'tzbc_settings_widgets', esc_html__( 'General', 'themezee-breadcrumbs' ), array( $this, 'general_section_intro' ), 'tzbc_settings' );
 		add_settings_section( 'tzbc_settings_example_one', __('Example 1', 'themezee-breadcrumbs' ), '__return_false', 'tzbc_settings' );
 		add_settings_section( 'tzbc_settings_example_two', __('Example 2', 'themezee-breadcrumbs' ), '__return_false', 'tzbc_settings' );
-		add_settings_section( 'tzbc_settings_license', __('License', 'themezee-breadcrumbs'), '__return_false', 'tzbc_settings' );
+		add_settings_section( 'tzbc_settings_license', esc_html__( 'License', 'themezee-breadcrumbs' ), array( $this, 'license_section_intro' ), 'tzbc_settings' );
 		
 		// Add Settings
 		foreach ( $this->get_registered_settings() as $key => $option ) :
@@ -164,6 +165,28 @@ class TZBC_Settings {
 		register_setting( 'tzbc_settings', 'tzbc_settings', array( $this, 'sanitize_settings' ) );
 	}
 
+	
+	/**
+	 * General Section Intro
+	 *
+	 * @return void
+	*/
+	function general_section_intro() {
+		esc_html_e( 'Configure the Breadcrumbs Addon.', 'themezee-breadcrumbs');
+	}
+	
+	
+	/**
+	 * License Section Intro
+	 *
+	 * @return void
+	*/
+	function license_section_intro() {
+		printf( __( 'Please enter your license key. An active license key is needed for automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'themezee-breadcrumbs' ), 'http://themezee.com/support/' );
+
+	}
+	
+	
 	/**
 	 * Sanitize the Plugin Settings
 	 *
@@ -214,14 +237,6 @@ class TZBC_Settings {
 				else :
 					$input[ $key ] = wp_kses_post( $value );
 				endif;
-			
-			elseif ( $type == 'rich_editor' ) :
-				
-				$input[ $key ] = wp_kses_post( $value );
-			
-			elseif ( $type == 'upload' ) :
-				
-				$input[ $key ] = esc_url_raw( $value );
 			
 			elseif ( $type == 'checkbox' or $type == 'multicheck' ) :
 				
@@ -397,6 +412,7 @@ class TZBC_Settings {
 		return apply_filters( 'tzbc_settings', $settings );
 	}
 
+	
 	/**
 	 * Checkbox Callback
 	 *
@@ -415,6 +431,7 @@ class TZBC_Settings {
 		echo $html;
 	}
 
+	
 	/**
 	 * Multicheck Callback
 	 *
@@ -512,14 +529,14 @@ class TZBC_Settings {
 
 		if( 'valid' === $license_status && ! empty( $license_key ) ) {
 			$html .= '<input type="submit" class="button" name="tzbc_deactivate_license" value="' . esc_attr__( 'Deactivate License', 'themezee-breadcrumbs' ) . '"/>';
-			$html .= '<span style="display: inline-block; padding: 5px; color: green;">&nbsp;' . __( 'Your license is valid!', 'themezee-breadcrumbs' ) . '</span>';
+			$html .= '<span style="display: inline-block; padding: 5px; color: green;">&nbsp;' . esc_html__( 'Your license is valid!', 'themezee-breadcrumbs' ) . '</span>';
 		} elseif( 'expired' === $license_status && ! empty( $license_key ) ) {
 			$renewal_url = esc_url( add_query_arg( array( 'edd_license_key' => $license_key, 'download_id' => TZBC_PRODUCT_ID ), 'https://themezee.com/checkout' ) );
-			$html .= '<a href="' . esc_url( $renewal_url ) . '" class="button-primary">' . __( 'Renew Your License', 'themezee-breadcrumbs' ) . '</a>';
-			$html .= '<br/><span style="display: inline-block; padding: 5px; color: red;">&nbsp;' . __( 'Your license has expired, renew today to continue getting updates and support!', 'themezee-breadcrumbs' ) . '</span>';
+			$html .= '<a href="' . esc_url( $renewal_url ) . '" class="button-primary">' . esc_html__( 'Renew Your License', 'themezee-breadcrumbs' ) . '</a>';
+			$html .= '<br/><span style="display: inline-block; padding: 5px; color: red;">&nbsp;' . esc_html__( 'Your license has expired, renew today to continue getting updates and support!', 'themezee-breadcrumbs' ) . '</span>';
 		} elseif( 'invalid' === $license_status && ! empty( $license_key ) ) {
 			$html .= '<input type="submit" class="button" name="tzbc_activate_license" value="' . esc_attr__( 'Activate License', 'themezee-breadcrumbs' ) . '"/>';
-			$html .= '<span style="display: inline-block; padding: 5px; color: red;">&nbsp;' . __( 'Your license is invalid!', 'themezee-breadcrumbs' ) . '</span>';
+			$html .= '<span style="display: inline-block; padding: 5px; color: red;">&nbsp;' . esc_html__( 'Your license is invalid!', 'themezee-breadcrumbs' ) . '</span>';
 		} else {
 			$html .= '<input type="submit" class="button" name="tzbc_activate_license" value="' . esc_attr__( 'Activate License', 'themezee-breadcrumbs' ) . '"/>';
 		}
@@ -529,6 +546,7 @@ class TZBC_Settings {
 		echo $html;
 	}
 
+	
 	/**
 	 * Number Callback
 	 *
@@ -556,6 +574,7 @@ class TZBC_Settings {
 		echo $html;
 	}
 
+	
 	/**
 	 * Textarea Callback
 	 *
@@ -578,6 +597,7 @@ class TZBC_Settings {
 
 		echo $html;
 	}
+	
 	
 	/**
 	 * Textarea HTML Callback
@@ -608,7 +628,6 @@ class TZBC_Settings {
 	 *
 	 * If a function is missing for settings callbacks alert the user.
 	 *
-	 * @since 1.3.1
 	 * @param array $args Arguments passed by the setting
 	 * @return void
 	 */
@@ -644,52 +663,7 @@ class TZBC_Settings {
 
 		echo $html;
 	}
-
-	/**
-	 * Rich Editor Callback
-	 *
-	 * Renders rich editor fields.
-	 *
-	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the ThemeZee Breadcrumbs Options
-	 * @global $wp_version WordPress Version
-	 */
-	function rich_editor_callback( $args ) {
-
-		if ( isset( $this->options[ $args['id'] ] ) )
-			$value = $this->options[ $args['id'] ];
-		else
-			$value = isset( $args['default'] ) ? $args['default'] : '';
-
-		ob_start();
-		wp_editor( stripslashes( $value ), 'tzbc_settings_' . $args['id'], array( 'textarea_name' => 'tzbc_settings[' . $args['id'] . ']' ) );
-		$html = ob_get_clean();
-
-		$html .= '<br/><label for="tzbc_settings[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
-
-		echo $html;
-	}
-
-	/**
-	 * Upload Callback
-	 *
-	 * Renders file upload fields.
-	 *
-	 * @param array $args Arguements passed by the setting
-	 */
-	function upload_callback( $args ) {
-		if( isset( $this->options[ $args['id'] ] ) )
-			$value = $this->options[ $args['id'] ];
-		else
-			$value = isset( $args['default'] ) ? $args['default'] : '';
-
-		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
-		$html = '<input type="text" class="' . $size . '-text" id="tzbc_settings[' . $args['id'] . ']" name="tzbc_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/>';
-		$html .= '<span>&nbsp;<input type="button" class="tzbc_settings_upload_button button-secondary" value="' . __( 'Upload File', 'themezee-breadcrumbs' ) . '"/></span>';
-		$html .= '<p class="description">'  . $args['desc'] . '</p>';
-
-		echo $html;
-	}
+	
 
 	/**
 	 * Activate license key
