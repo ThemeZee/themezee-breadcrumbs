@@ -127,11 +127,14 @@ class ThemeZee_Breadcrumbs {
 		// Enqueue Frontend Widget Styles
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ) );
 		
+		// Add Settings link to Plugin actions
+		add_filter( 'plugin_action_links_' . plugin_basename( TZBC_PLUGIN_FILE ), array( __CLASS__, 'plugin_action_links' ) );
+		
 		// Add Breadcrumbs Addon Box to Add-on Overview Page
-		add_action('themezee_addons_overview_page', array( __CLASS__, 'addon_overview_page' ) );
+		add_action( 'themezee_addons_overview_page', array( __CLASS__, 'addon_overview_page' ) );
 		
 		// Add License Key admin notice
-		add_action('admin_notices', array( __CLASS__, 'license_key_admin_notice' ) );
+		add_action( 'admin_notices', array( __CLASS__, 'license_key_admin_notice' ) );
 		
 		// Add automatic plugin updater from ThemeZee Store API
 		add_action( 'admin_init', array( __CLASS__, 'plugin_updater' ), 0 );
@@ -153,6 +156,18 @@ class ThemeZee_Breadcrumbs {
 		// Enqueue Plugin Stylesheet
 		wp_enqueue_style( 'themezee-breadcrumbs', TZBC_PLUGIN_URL . 'assets/css/themezee-breadcrumbs.css', array(), TZBC_VERSION );
 		
+	}
+	
+	/**
+	 * Add Settings link to the plugin actions
+	 *
+	 * @return array $actions Plugin action links
+	 */
+	static function plugin_action_links( $actions ) {
+
+		$settings_link = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=themezee-addons&tab=breadcrumbs' ), __( 'Settings', 'themezee-breadcrumbs' ) ) );
+		
+		return array_merge( $settings_link, $actions );
 	}
 	
 	/**
