@@ -14,17 +14,33 @@
 # General Styles
 ---------------------------------------------------------------- */
 
-/* Clearing Floats */
-.tzbc-clearfix:before, 
-.tzbc-clearfix:after {  
-	content: " ";
-	display: table;  
-}  
-
-.tzbc-clearfix:after {  
-	clear: both;
-}  
-
-.tzbc-clearfix {
-    *zoom: 1; /* For IE 6/7 only */  
+.breadcrumbs .trail-browse,
+.breadcrumbs .trail-items,
+.breadcrumbs .trail-items li {
+	display:     inline-block;
+	margin:      0 0 12px 0;
+	padding:     0;
+	border:      none;
+	background:  transparent;
+	text-indent: 0;
 }
+
+.breadcrumbs .trail-browse {
+	font-size:   inherit;
+	font-style:  inherit;
+	font-weight: inherit;
+	color:       inherit;
+}
+
+.breadcrumbs .trail-items {
+	list-style: none;
+}
+
+	.trail-items li::after {
+		content: "\002F";
+		padding: 0 0.5em;
+	}
+
+	.trail-items li:last-of-type::after {
+		display: none;
+	}

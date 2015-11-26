@@ -106,12 +106,16 @@ class ThemeZee_Breadcrumbs {
 	static function includes() {
 
 		// Include Admin Classes
-		require_once TZBC_PLUGIN_DIR . '/includes/class-themezee-addons-page.php';
-		require_once TZBC_PLUGIN_DIR . '/includes/class-tzbc-plugin-updater.php';
+		require_once TZBC_PLUGIN_DIR . '/includes/admin/class-themezee-addons-page.php';
+		require_once TZBC_PLUGIN_DIR . '/includes/admin/class-tzbc-plugin-updater.php';
 		
 		// Include Settings Classes
 		require_once TZBC_PLUGIN_DIR . '/includes/settings/class-tzbc-settings.php';
 		require_once TZBC_PLUGIN_DIR . '/includes/settings/class-tzbc-settings-page.php';
+		
+		// Include Breadcrumb Files
+		require_once TZBC_PLUGIN_DIR . '/includes/class-tzbc-breadcrumb-trail.php';
+		require_once TZBC_PLUGIN_DIR . '/includes/breadcrumbs-setup.php';
 		
 	}
 	
