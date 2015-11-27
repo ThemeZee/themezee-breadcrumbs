@@ -35,12 +35,23 @@
 .breadcrumbs .trail-items {
 	list-style: none;
 }
+	
+/*--------------------------------------------------------------
+# Link Separator
+---------------------------------------------------------------- */
+.breadcrumbs .trail-items li::after {
+	content: "\00bb"; /* Raquo */
+	padding: 0 0.5em;
+}
 
-	.trail-items li::after {
-		content: "\002F";
-		padding: 0 0.5em;
-	}
+.separator-slash .trail-items li::after { content: "\002F"; }
+.separator-dash .trail-items li::after { content: "\2013"; }
+.separator-bull .trail-items li::after { content: "\2022"; }
+.separator-arrow-bracket .trail-items li::after { content: "\003e"; }
+.separator-raquo .trail-items li::after { content: "\00bb"; }
+.separator-single-arrow .trail-items li::after { content: "\2192"; }
+.separator-double-arrow .trail-items li::after { content: "\21D2"; }
 
-	.trail-items li:last-of-type::after {
-		display: none;
-	}
+.breadcrumbs .trail-items li:last-of-type::after {
+	display: none;
+}

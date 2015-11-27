@@ -129,9 +129,7 @@ class TZBC_Settings {
 		}
 		
 		// Add Sections
-		add_settings_section( 'tzbc_settings_widgets', esc_html__( 'General', 'themezee-breadcrumbs' ), array( $this, 'general_section_intro' ), 'tzbc_settings' );
-		add_settings_section( 'tzbc_settings_example_one', __('Example 1', 'themezee-breadcrumbs' ), '__return_false', 'tzbc_settings' );
-		add_settings_section( 'tzbc_settings_example_two', __('Example 2', 'themezee-breadcrumbs' ), '__return_false', 'tzbc_settings' );
+		add_settings_section( 'tzbc_settings_general', esc_html__( 'General', 'themezee-breadcrumbs' ), '__return_false', 'tzbc_settings' );
 		add_settings_section( 'tzbc_settings_license', esc_html__( 'License', 'themezee-breadcrumbs' ), array( $this, 'license_section_intro' ), 'tzbc_settings' );
 		
 		// Add Settings
@@ -165,17 +163,6 @@ class TZBC_Settings {
 		register_setting( 'tzbc_settings', 'tzbc_settings', array( $this, 'sanitize_settings' ) );
 	}
 
-	
-	/**
-	 * General Section Intro
-	 *
-	 * @return void
-	*/
-	function general_section_intro() {
-		esc_html_e( 'Configure the Breadcrumbs Addon.', 'themezee-breadcrumbs');
-	}
-	
-	
 	/**
 	 * License Section Intro
 	 *
@@ -185,7 +172,6 @@ class TZBC_Settings {
 		printf( __( 'Please enter your license key. An active license key is needed for automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'themezee-breadcrumbs' ), 'http://themezee.com/support/' );
 
 	}
-	
 	
 	/**
 	 * Sanitize the Plugin Settings
@@ -282,127 +268,39 @@ class TZBC_Settings {
 	function get_registered_settings() {
 
 		$settings = array(
-			'textfield' => array(
-				'name' =>  __('Textfield', 'themezee-breadcrumbs'),
-				'desc' => __('Displays a textfield setting. ', 'themezee-breadcrumbs'),
-				'section' => 'example_one',
+			'browse_text' => array(
+				'name' =>  esc_html__( 'Browse Text', 'themezee-breadcrumbs' ),
+				'desc' => esc_html__( 'Enter the text which is displayed before the breadcrumb list. ', 'themezee-breadcrumbs' ),
+				'section' => 'general',
 				'type' => 'text',
-				'size' => 'regular' // Delete that line for normal text field
+				'size' => 'regular',
+				'default' => esc_html__( 'You are here: ', 'themezee-breadcrumbs' )
 			),
-			'textfield_small' => array(
-				'name' =>  __('Textfield Small', 'themezee-breadcrumbs'),
-				'desc' => __('Displays a small textfield setting. ', 'themezee-breadcrumbs'),
-				'section' => 'example_one',
-				'type' => 'text',
-				'size' => 'small',
-				'default' => ''
-			),
-			'textfield_large' => array(
-				'name' =>  __('Textfield Large', 'themezee-breadcrumbs'),
-				'desc' => __('Displays a large textfield setting. ', 'themezee-breadcrumbs'),
-				'section' => 'example_one',
-				'type' => 'text',
-				'size' => 'large',
-				'default' => ''
-			),
-			'radio_button' => array(
-				'name' =>  __('Radio Buttons', 'themezee-breadcrumbs'),
-				'desc' => __('Shows an example radio button control. ', 'themezee-breadcrumbs'),
-				'section' => 'example_one',
-				'type' => 'radio',
+			'separator' => array(
+				'name' =>  esc_html__( 'Link Separator', 'themezee-breadcrumbs' ),
+				'desc' => esc_html__( 'Select the separator of the breadcrumb items.', 'themezee-breadcrumbs' ),
+				'section' => 'general',
+				'type' => 'select',
 				'options' => array(	
-					'radio_1' => __('Radio Setting 1', 'themezee-breadcrumbs'),	
-					'radio_2' => __('Radio Setting 2', 'themezee-breadcrumbs'),	
-					'radio_3' => __('Radio Setting 3', 'themezee-breadcrumbs')
+					'slash' => '/',
+					'dash' => '&ndash;',
+					'bull' => '&bull;',
+					'arrow-bracket' => '&gt;',
+					'raquo' => '&raquo;',
+					'single-arrow' => '&rarr;',	
+					'double-arrow' => '&rArr;'
 				),
-				'default' => 'radio_2'
+				'default' => 'raquo'
 			),
-			'checkbox' => array(
-				'name' =>  __('Checkbox', 'themezee-breadcrumbs'),
-				'desc' => __('Displays an example checkbox (default = true). ', 'themezee-breadcrumbs'),
-				'section' => 'example_one',
-				'type' => 'checkbox',
-				'default' => true
-			),
-			'checkbox_2' => array(
-				'name' =>  __('Checkbox 2', 'themezee-breadcrumbs'),
-				'desc' => __('Displays a second example checkbox (default = false). ', 'themezee-breadcrumbs'),
-				'section' => 'example_one',
+			'front_page' => array(
+				'name' =>  esc_html__( 'Front Page', 'themezee-breadcrumbs' ),
+				'desc' => esc_html__( 'Display breadcrumb list on front page.', 'themezee-breadcrumbs'),
+				'section' => 'general',
 				'type' => 'checkbox',
 				'default' => false
 			),
-			'textarea' => array(
-				'name' =>  __('Textarea', 'themezee-breadcrumbs'),
-				'desc' => __('Displays a textarea. ', 'themezee-breadcrumbs'),
-				'section' => 'example_one',
-				'type' => 'textarea',
-				'size' => 'large',
-				'default' => __('Default Text', 'themezee-breadcrumbs')	
-			),
-			'textarea_html' => array(
-				'name' =>  __('Textarea HTML', 'themezee-breadcrumbs'),
-				'desc' => __('Displays a HTML textarea. ', 'themezee-breadcrumbs'),
-				'section' => 'example_one',
-				'type' => 'textarea_html',
-				'size' => 'large',
-				'default' => __('Default HTML', 'themezee-breadcrumbs')	
-			),
-			'select_field' => array(
-				'name' =>  __('Select Field', 'themezee-breadcrumbs'),
-				'desc' => __('Shows an example select field control. ', 'themezee-breadcrumbs'),
-				'section' => 'example_two',
-				'type' => 'select',
-				'options' => array(	
-					'select_1' => __('Select Setting 1', 'themezee-breadcrumbs'),	
-					'select_2' => __('Select Setting 2', 'themezee-breadcrumbs'),	
-					'select_3' => __('Select Setting 3', 'themezee-breadcrumbs')
-				),
-				'default' => 'select_3'
-			),
-			'multicheck' => array(
-				'name' => __( 'Multi Checkbox', 'themezee-breadcrumbs' ),
-				'desc' => __( 'Select multiple checkboxes.', 'themezee-breadcrumbs' ),
-				'section' => 'example_two',
-				'type' => 'multicheck',
-				'options' => array(	
-					'check_1' => __('Checkbox Setting 1', 'themezee-breadcrumbs'),	
-					'check_2' => __('Checkbox Setting 2', 'themezee-breadcrumbs'),	
-					'check_3' => __('Checkbox Setting 3', 'themezee-breadcrumbs')
-				),
-				'default' => true
-			),
-			'number' => array(
-				'name' =>  __('Number', 'themezee-breadcrumbs'),
-				'desc' => __('Example number setting', 'themezee-breadcrumbs'),
-				'section' => 'example_two',
-				'type' => 'number',
-				'max' => 80,
-				'min' => 3,
-				'step' => 0.5,
-				'default' => 4
-			),
-			'upload' => array(
-				'name' =>  __('File Upload', 'themezee-breadcrumbs'),
-				'desc' => __('Example uploader', 'themezee-breadcrumbs'),
-				'section' => 'example_two',
-				'type' => 'upload',
-				'default' => ''
-			),
-			'missing' => array(
-				'name' =>  __('Missing Callback', 'themezee-breadcrumbs'),
-				'desc' => __('No Setting exists for that type', 'themezee-breadcrumbs'),
-				'section' => 'example_two',
-				'type' => 'blablub',
-				'default' => ''
-			),
-			'editor' => array(
-				'name' =>  __('Editor', 'themezee-breadcrumbs'),
-				'section' => 'example_two',
-				'type' => 'rich_editor',
-				'default' => ''
-			),
 			'license_key' => array(
-				'name' => __( 'License Key', 'themezee-breadcrumbs' ),
+				'name' => esc_html__( 'License Key', 'themezee-breadcrumbs' ),
 				'section' => 'license',
 				'type' => 'license',
 				'default' => ''
@@ -655,7 +553,7 @@ class TZBC_Settings {
 
 		foreach ( $args['options'] as $option => $name ) :
 			$selected = selected( $option, $value, false );
-			$html .= '<option value="' . $option . '" ' . $selected . '>' . $name . '</option>';
+			$html .= '<option value="' . $option . '" ' . $selected . '>&nbsp;' . $name . '&nbsp;</option>';
 		endforeach;
 
 		$html .= '</select>';

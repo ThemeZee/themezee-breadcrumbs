@@ -108,15 +108,21 @@ class TZBC_Breadcrumb_Trail {
 	 * @return void
 	 */
 	public function __construct( $args = array() ) {
-
+		
+		// Get Breadcrumb Settings
+		$instance = TZBC_Settings::instance();
+		$options = $instance->get_all();
+		
 		$defaults = array(
 			'container'       => 'nav',
 			'before'          => '',
 			'after'           => '',
-			'show_on_front'   => true,
+			'separator'  	  => $options['separator'],
+			'show_on_front'   => $options['front_page'],
 			'network'         => false,
 			'show_title'      => true,
 			'show_browse'     => true,
+			'browse_text'	  => $options['browse_text'],
 			'labels'          => array(),
 			'post_taxonomy'   => array(),
 			'echo'            => true
@@ -153,9 +159,10 @@ class TZBC_Breadcrumb_Trail {
 		if ( 0 < $item_count ) {
 
 			// Add 'browse' label if it should be shown.
-			if ( true === $this->args['show_browse'] )
-				$breadcrumb .= sprintf( '<h2 class="trail-browse">%s</h2> ', $this->labels['browse'] );
-
+			if ( true === $this->args['show_browse'] and $this->args['browse_text'] <> '' ) {
+				$breadcrumb .= sprintf( '<h2 class="trail-browse">%s</h2> ', wp_kses_post( $this->args['browse_text'] ) );
+			}
+			
 			// Open the unordered list.
 			$breadcrumb .= '<ul class="trail-items" itemscope itemtype="http://schema.org/BreadcrumbList">';
 
@@ -199,9 +206,10 @@ class TZBC_Breadcrumb_Trail {
 
 			// Wrap the breadcrumb trail.
 			$breadcrumb = sprintf(
-				'<%1$s role="navigation" aria-label="%2$s" class="themezee-breadcrumbs breadcrumbs" itemprop="breadcrumb">%3$s%4$s%5$s</%1$s>',
+				'<%1$s role="navigation" aria-label="%2$s" class="themezee-breadcrumbs breadcrumbs separator-%3$s" itemprop="breadcrumb">%4$s%5$s%6$s</%1$s>',
 				tag_escape( $this->args['container'] ),
 				esc_attr( $this->labels['aria_label'] ),
+				esc_attr( $this->args['separator'] ), 
 				$this->args['before'],
 				$breadcrumb,
 				$this->args['after']
@@ -229,7 +237,6 @@ class TZBC_Breadcrumb_Trail {
 	protected function set_labels() {
 
 		$defaults = array(
-			'browse'              => esc_html__( 'Browse:',                               'themezee-breadcrumbs' ),
 			'aria_label'          => esc_attr_x( 'Breadcrumbs', 'breadcrumbs aria label', 'themezee-breadcrumbs' ),
 			'home'                => esc_html__( 'Home',                                  'themezee-breadcrumbs' ),
 			'error_404'           => esc_html__( '404 Not Found',                         'themezee-breadcrumbs' ),
