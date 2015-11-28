@@ -160,7 +160,7 @@ class TZBC_Breadcrumb_Trail {
 
 			// Add 'browse' label if it should be shown.
 			if ( true === $this->args['show_browse'] and $this->args['browse_text'] <> '' ) {
-				$breadcrumb .= sprintf( '<h2 class="trail-browse">%s</h2> ', wp_kses_post( $this->args['browse_text'] ) );
+				$breadcrumb .= sprintf( '<h2 class="trail-browse">%s</h2>', wp_kses_post( $this->args['browse_text'] ) );
 			}
 			
 			// Open the unordered list.
@@ -206,7 +206,7 @@ class TZBC_Breadcrumb_Trail {
 
 			// Wrap the breadcrumb trail.
 			$breadcrumb = sprintf(
-				'<%1$s role="navigation" aria-label="%2$s" class="themezee-breadcrumbs breadcrumbs separator-%3$s" itemprop="breadcrumb">%4$s%5$s%6$s</%1$s>',
+				'<%1$s role="navigation" aria-label="%2$s" class="themezee-breadcrumbs breadcrumbs trail-separator-%3$s" itemprop="breadcrumb">%4$s%5$s%6$s</%1$s>',
 				tag_escape( $this->args['container'] ),
 				esc_attr( $this->labels['aria_label'] ),
 				esc_attr( $this->args['separator'] ), 

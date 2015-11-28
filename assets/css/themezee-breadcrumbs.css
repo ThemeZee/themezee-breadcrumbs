@@ -26,6 +26,7 @@
 }
 
 .breadcrumbs .trail-browse {
+	margin-right: 0.5em;
 	font-size:   inherit;
 	font-style:  inherit;
 	font-weight: inherit;
@@ -44,13 +45,13 @@
 	padding: 0 0.5em;
 }
 
-.separator-slash .trail-items li::after { content: "\002F"; }
-.separator-dash .trail-items li::after { content: "\2013"; }
-.separator-bull .trail-items li::after { content: "\2022"; }
-.separator-arrow-bracket .trail-items li::after { content: "\003e"; }
-.separator-raquo .trail-items li::after { content: "\00bb"; }
-.separator-single-arrow .trail-items li::after { content: "\2192"; }
-.separator-double-arrow .trail-items li::after { content: "\21D2"; }
+.trail-separator-slash .trail-items li::after { content: "\002F"; }
+.trail-separator-dash .trail-items li::after { content: "\2013"; }
+.trail-separator-bull .trail-items li::after { content: "\2022"; }
+.trail-separator-arrow-bracket .trail-items li::after { content: "\003e"; }
+.trail-separator-raquo .trail-items li::after { content: "\00bb"; }
+.trail-separator-single-arrow .trail-items li::after { content: "\2192"; }
+.trail-separator-double-arrow .trail-items li::after { content: "\21D2"; }
 
 .breadcrumbs .trail-items li:last-of-type::after {
 	display: none;
