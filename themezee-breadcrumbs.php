@@ -2,7 +2,7 @@
 /*
 Plugin Name: ThemeZee Breadcrumbs
 Plugin URI: http://themezee.com/addons/breadcrumbs/
-Description: A collection of our most popular widgets, neatly bundled into a single plugin. The Plugin includes advanced widgets for Recent Posts, Recent Comments, Facebook Likebox, Tabbed Content, Social Icons and more.
+Description: This plugin allows you to add a nice and elegant breadcrumb navigation. Breadcrumbs make it easy for the user to navigate up and down the hierarchy of your website and are good for SEO.
 Author: ThemeZee
 Author URI: http://themezee.com/
 Version: 1.0
@@ -69,7 +69,7 @@ class ThemeZee_Breadcrumbs {
 		define( 'TZBC_VERSION', '1.0' );
 		
 		// Define Plugin Name
-		define( 'TZBC_PRODUCT_ID', 99999 );
+		define( 'TZBC_PRODUCT_ID', 49729 );
 
 		// Define Update API URL
 		define( 'TZBC_STORE_API_URL', 'https://themezee.com' ); 

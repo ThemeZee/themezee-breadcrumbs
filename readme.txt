@@ -7,11 +7,12 @@ Tested up to: 4.4
 Stable tag: 1.0
 License: GPLv2 or later
 
-A collection of useful widgets, neatly bundled into a single plugin.
+The *ThemeZee Breadcrumbs* plugin allows you to add a nice and elegant breadcrumb navigation
 
 == Description ==
 
-The *ThemeZee Breadcrumbs* is a collection of useful widgets, neatly bundled into a single plugin. This plugin has been designed specifically for ThemeZee WordPress themes but will also work with any theme. 
+The *ThemeZee Breadcrumbs* plugin allows you to add a nice and elegant breadcrumb navigation. 
+Breadcrumbs make it easy for the user to navigate up and down the hierarchy of your website and also allow search engines to better understand the structure of your site.
 
 = Documentation =
 
@@ -20,7 +21,7 @@ For detailed setup instructions, visit the official [Documentation](http://theme
 == Installation ==
 
 1. Activate the plugin
-2. Go to Appearance > Theme Addons > Breadcrumbs Addon and enable all the modules you need
+2. Go to Appearance > Theme Addons > Breadcrumbs and configure the plugin
 3. For detailed setup instructions, visit the official [Documentation](http://themezee.com/docs/breadcrumbs-documentation/) page
 
 == Changelog ==

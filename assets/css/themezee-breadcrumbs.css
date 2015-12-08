@@ -13,12 +13,15 @@
 /*--------------------------------------------------------------
 # General Styles
 ---------------------------------------------------------------- */
+.breadcrumbs {
+	margin: 0 0 12px 0;
+}
 
 .breadcrumbs .trail-browse,
 .breadcrumbs .trail-items,
 .breadcrumbs .trail-items li {
-	display:     inline-block;
-	margin:      0 0 12px 0;
+	display:     inline;
+	margin:      0;
 	padding:     0;
 	border:      none;
 	background:  transparent;

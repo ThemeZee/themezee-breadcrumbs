@@ -14,8 +14,6 @@
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @package   BreadcrumbTrail
- * @version   1.0.0
  * @author    Justin Tadlock <justin@justintadlock.com>
  * @copyright Copyright (c) 2008 - 2015, Justin Tadlock
  * @link      http://themehybrid.com/plugins/breadcrumb-trail
@@ -28,11 +26,12 @@
  *
  */
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Creates a breadcrumbs menu for the site based on the current page that's being viewed by the user.
  *
- * @since  0.6.0
  * @access public
  */
 class TZBC_Breadcrumb_Trail {
@@ -40,7 +39,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Array of items belonging to the current breadcrumb trail.
 	 *
-	 * @since  0.1.0
 	 * @access public
 	 * @var    array
 	 */
@@ -49,7 +47,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Arguments used to build the breadcrumb trail.
 	 *
-	 * @since  0.1.0
 	 * @access public
 	 * @var    array
 	 */
@@ -58,7 +55,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Array of text labels.
 	 *
-	 * @since  1.0.0
 	 * @access public
 	 * @var    array
 	 */
@@ -67,7 +63,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Array of post types (key) and taxonomies (value) to use for single post views.
 	 *
-	 * @since  1.0.0
 	 * @access public
 	 * @var    array
 	 */
@@ -79,7 +74,6 @@ class TZBC_Breadcrumb_Trail {
 	 * Magic method to use in case someone tries to output the layout object as a string.
 	 * We'll just return the trail HTML.
 	 *
-	 * @since  1.0.0
 	 * @access public
 	 * @return string
 	 */
@@ -91,7 +85,6 @@ class TZBC_Breadcrumb_Trail {
 	 * Sets up the breadcrumb trail properties.  Calls the `TZBC_Breadcrumb_Trail::add_items()` method
 	 * to creat the array of breadcrumb items.
 	 *
-	 * @since  0.6.0
 	 * @access public
 	 * @param  array   $args  {
 	 *     @type string    $container      Container HTML element. nav|div
@@ -128,7 +121,7 @@ class TZBC_Breadcrumb_Trail {
 			'echo'            => true
 		);
 
-		// Parse the arguments with the deaults.
+		// Parse the arguments with the defaults.
 		$this->args = apply_filters( 'themezee_breadcrumbs_args', wp_parse_args( $args, $defaults ) );
 
 		// Set the labels and post taxonomy properties.
@@ -144,7 +137,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Formats the HTML output for the breadcrumb trail.
 	 *
-	 * @since  0.6.0
 	 * @access public
 	 * @return string
 	 */
@@ -230,7 +222,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Sets the labels property.  Parses the inputted labels array with the defaults.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -265,7 +256,6 @@ class TZBC_Breadcrumb_Trail {
 	 * Sets the `$post_taxonomy` property.  This is an array of post types (key) and taxonomies (value).
 	 * The taxonomy's terms are shown on the singular post view if set.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -284,7 +274,6 @@ class TZBC_Breadcrumb_Trail {
 	 * Runs through the various WordPress conditional tags to check the current page being viewed.  Once
 	 * a condition is met, a specific method is launched to add items to the `$items` array.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -370,7 +359,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Gets front items based on $wp_rewrite->front.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -384,7 +372,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the page/paged number to the items array.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -402,7 +389,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the network (all sites) home page link to the items array.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -415,7 +401,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the current site's home page link to the items array.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -431,7 +416,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds items for the front page to the items array.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -456,7 +440,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds items for the posts page (i.e., is_home()) to the items array.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -484,7 +467,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds singular post items to the items array.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -520,7 +502,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for taxonomy term archives.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @global object $wp_rewrite
 	 * @return void
@@ -629,7 +610,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for post type archives.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -660,7 +640,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for user (author) archives.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @global object $wp_rewrite
 	 * @return void
@@ -689,7 +668,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for minute + hour archives.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -706,7 +684,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for minute archives.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -723,7 +700,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for hour archives.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -740,7 +716,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for day archives.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -769,7 +744,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for week archives.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -796,7 +770,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for month archives.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -823,7 +796,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for year archives.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -847,7 +819,6 @@ class TZBC_Breadcrumb_Trail {
 	 * Adds the items to the trail items array for archives that don't have a more specific method
 	 * defined in this class.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -864,7 +835,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for search results.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -880,7 +850,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds the items to the trail items array for 404 pages.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @return void
 	 */
@@ -893,7 +862,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds a specific post's parents to the items array.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @param  int    $post_id
 	 * @return void
@@ -936,7 +904,6 @@ class TZBC_Breadcrumb_Trail {
 	 * Adds a specific post's hierarchy to the items array.  The hierarchy is determined by post type's
 	 * rewrite arguments and whether it has an archive page.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @param  int    $post_id
 	 * @return void
@@ -986,7 +953,6 @@ class TZBC_Breadcrumb_Trail {
 	 * Gets post types by slug.  This is needed because the get_post_types() function doesn't exactly
 	 * match the 'has_archive' argument when it's set as a string instead of a boolean.
 	 *
-	 * @since  0.6.0
 	 * @access protected
 	 * @param  int    $slug  The post type archive slug to search for.
 	 * @return void
@@ -1009,7 +975,6 @@ class TZBC_Breadcrumb_Trail {
 	/**
 	 * Adds a post's terms from a specific taxonomy to the items array.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @param  int     $post_id  The ID of the post to get the terms for.
 	 * @param  string  $taxonomy The taxonomy to get the terms from.
@@ -1044,7 +1009,6 @@ class TZBC_Breadcrumb_Trail {
 	 * post type.  The goal of this function is to create a clear path back to home given what would
 	 * normally be a "ghost" directory.  If any page matches the given path, it'll be added.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @param  string $path The path (slug) to search for posts by.
 	 * @return void
@@ -1102,7 +1066,6 @@ class TZBC_Breadcrumb_Trail {
 	 * Searches for term parents of hierarchical taxonomies.  This function is similar to the WordPress
 	 * function get_category_parents() but handles any type of taxonomy.
 	 *
-	 * @since  1.0.0
 	 * @param  int    $term_id  ID of the term to get the parents of.
 	 * @param  string $taxonomy Name of the taxonomy for the given term.
 	 * @return void
@@ -1136,7 +1099,6 @@ class TZBC_Breadcrumb_Trail {
 	 * post type.  In the future, maybe it'll handle a wider variety of possibilities, especially for custom post
 	 * types.
 	 *
-	 * @since  0.6.0
 	 * @access protected
 	 * @param  int    $post_id ID of the post whose parents we want.
 	 * @param  string $path    Path of a potential parent page.
