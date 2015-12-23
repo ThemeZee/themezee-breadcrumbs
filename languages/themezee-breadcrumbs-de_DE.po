@@ -1,11 +1,11 @@
-# Translation of Themes + Pro Versions + Add-ons in German
-# This file is distributed under the same license as the Themes + Pro Versions + Add-ons package.
+# Translation of Themes + Pro Versions + Plugins in German
+# This file is distributed under the same license as the Themes + Pro Versions + Plugins package.
 msgid ""
 msgstr ""
 "Project-Id-Version: ThemeZee Breadcrumbs\n"
 "Report-Msgid-Bugs-To: http://themezee.com/\n"
-"POT-Creation-Date: 2015-12-08 15:40+0100\n"
-"PO-Revision-Date: 2015-12-08 15:48+0100\n"
+"POT-Creation-Date: 2015-12-23 19:12+0100\n"
+"PO-Revision-Date: 2015-12-23 19:12+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: de_DE\n"
@@ -36,10 +36,10 @@ msgstr "Dokumentation ansehen"
 #: themezee-breadcrumbs.php:224
 #, php-format
 msgid ""
-"Please enter your license key for the %1$s add-on in order to receive "
+"Please enter your license key for the %1$s plugin in order to receive "
 "updates and support. <a href=\"%2$s\">Enter License Key</a>"
 msgstr ""
-"Bitte trage deinen Lizenzschlüssel für das %1$s Add-on ein, um automatische "
+"Bitte trage deinen Lizenzschlüssel für das %1$s Plugin ein, um automatische "
 "Updates und Support zu erhalten. <a href=\"%2$s\">Lizenzschlüssel eingeben</"
 "a>"
 
@@ -122,21 +122,18 @@ msgctxt "weekly archives date format"
 msgid "W"
 msgstr "W"
 
-#: includes/admin/class-themezee-addons-page.php:43
-#: includes/admin/class-themezee-addons-page.php:113
-#: includes/admin/class-themezee-addons-page.php:118
-msgid "ThemeZee Add-ons"
-msgstr "ThemeZee Add-ons"
+#: includes/admin/class-themezee-plugins-page.php:43
+#: includes/admin/class-themezee-plugins-page.php:44
+#: includes/admin/class-themezee-plugins-page.php:113
+#: includes/admin/class-themezee-plugins-page.php:118
+msgid "ThemeZee Plugins"
+msgstr "ThemeZee Plugins"
 
-#: includes/admin/class-themezee-addons-page.php:44
-msgid "Theme Add-ons"
-msgstr "Theme Add-ons"
+#: includes/admin/class-themezee-plugins-page.php:113
+msgid "plugins"
+msgstr "Plugins"
 
-#: includes/admin/class-themezee-addons-page.php:113
-msgid "add-ons"
-msgstr "Add-ons"
-
-#: includes/admin/class-themezee-addons-page.php:120
+#: includes/admin/class-themezee-plugins-page.php:120
 #, php-format
 msgid ""
 "You need more features and functionality? Extend your website with our "
@@ -145,7 +142,7 @@ msgstr ""
 "Du brauchst mehr Features und Funktionalität? Erweitere deine Webseite mit "
 "unseren individuellen %s."
 
-#: includes/admin/class-themezee-addons-page.php:143
+#: includes/admin/class-themezee-plugins-page.php:143
 msgid "Overview"
 msgstr "Übersicht"
 
@@ -269,6 +266,9 @@ msgstr ""
 "Die Callback Funktion für die Einstellung <strong>%s</strong> ist nicht "
 "vorhanden."
 
+#~ msgid "Theme Plugins"
+#~ msgstr "Theme Plugins"
+
 #~ msgctxt "color setting"
 #~ msgid "Navigation Hover"
 #~ msgstr "Navigation Hover"
@@ -290,7 +290,7 @@ msgstr ""
 #~ msgstr "Header-Bild Link"
 
 #~ msgid ""
-#~ "The ThemeZee Toolkit add-on is a collection of useful small modules and "
+#~ "The ThemeZee Toolkit plugin is a collection of useful small modules and "
 #~ "features, neatly bundled into a single plugin."
 #~ msgstr ""
 #~ "Das ThemeZee Toolkit ist eine Sammlung von nützlichen Modulen und kleinen "
@@ -302,18 +302,18 @@ msgstr ""
 #~ msgid "Install now"
 #~ msgstr "Jetzt installieren"
 
-#~ msgid "Add-on plugins"
-#~ msgstr "Add-on Plugins"
+#~ msgid "Plugin plugins"
+#~ msgstr "Plugin Plugins"
 
 #~ msgid ""
 #~ "Extend the functionality of your WordPress website with our customized "
-#~ "add-ons."
+#~ "plugins."
 #~ msgstr ""
 #~ "Erweitere die Funktionalität deiner WordPress Webseite mit unseren Add-"
 #~ "ons."
 
-#~ msgid "Browse our add-ons"
-#~ msgstr "Add-ons ansehen"
+#~ msgid "Browse our plugins"
+#~ msgstr "Plugins ansehen"
 
 #~ msgid "Theme Links:"
 #~ msgstr "Theme Links"

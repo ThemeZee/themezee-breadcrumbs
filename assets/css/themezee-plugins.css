@@ -1,33 +1,33 @@
 
 /* Clearing Floats */
-.themezee-addons-clearfix:before, 
-.themezee-addons-clearfix:after {  
+.themezee-plugins-clearfix:before, 
+.themezee-plugins-clearfix:after {  
 	content: " ";
 	display: table;  
 }  
 
-.themezee-addons-clearfix:after {  
+.themezee-plugins-clearfix:after {  
 	clear: both;
 }  
 
-.themezee-addons-clearfix {
+.themezee-plugins-clearfix {
     *zoom: 1; /* For IE 6/7 only */  
 }
 
 /* Layout */
-#themezee-addons-overview {
+#themezee-plugins-overview {
 	max-width: 1100px;
 }
 
-.themezee-addons-tab-content {
+.themezee-plugins-tab-content {
 	margin-top: 28px;
 }
 
-#themezee-addon-header {
+#themezee-plugin-header {
 	font-size: 28px;
 }
 
-.themezee-addons-intro {
+.themezee-plugins-intro {
 	margin: 12px 0 16px;
 	font-size: 19px;
     font-weight: 400;
@@ -35,12 +35,12 @@
 	color: #777;
 }
 
-/* Add-on Overview List */
-#themezee-addons-list {
+/* Plugin Overview List */
+#themezee-plugins-list {
 	margin-top: 30px;
 }
 
-#themezee-addons-list dl {
+#themezee-plugins-list dl {
 	float: left;
 	margin: 0;
 	padding: 0 20px 20px 0;
@@ -50,7 +50,7 @@
 	box-sizing: border-box;
 }
 
-#themezee-addons-list dt {
+#themezee-plugins-list dt {
 	font-size: 14px;
     line-height: 1.4em;
     margin: 0;
@@ -61,20 +61,20 @@
 	border-bottom: 1px solid #eee;
 }
 
-#themezee-addons-list dt h4 {
+#themezee-plugins-list dt h4 {
 	display: inline;
 	padding: 0;
 	margin: 0;
 }
 
-#themezee-addons-list dt span {
+#themezee-plugins-list dt span {
 	float: right;
 	color: #888;
 	font-weight: bold;
 	font-size: 13px;
 }
 
-#themezee-addons-list dd {
+#themezee-plugins-list dd {
 	margin: 0;
 	padding: 12px;
 	font-size: 14px;
@@ -84,7 +84,7 @@
 	border-top: none;
 }
 
-#themezee-addons-list dd p {
+#themezee-plugins-list dd p {
 	margin: 0 0 12px;
 }
 

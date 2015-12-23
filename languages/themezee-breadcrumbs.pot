@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ThemeZee Breadcrumbs\n"
 "Report-Msgid-Bugs-To: http://themezee.com/\n"
-"POT-Creation-Date: 2015-12-08 15:40+0100\n"
-"PO-Revision-Date: 2015-12-08 15:40+0100\n"
+"POT-Creation-Date: 2015-12-23 19:12+0100\n"
+"PO-Revision-Date: 2015-12-23 19:12+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: en_US\n"
@@ -40,7 +40,7 @@ msgstr ""
 #: themezee-breadcrumbs.php:224
 #, php-format
 msgid ""
-"Please enter your license key for the %1$s add-on in order to receive "
+"Please enter your license key for the %1$s plugin in order to receive "
 "updates and support. <a href=\"%2$s\">Enter License Key</a>"
 msgstr ""
 
@@ -123,28 +123,25 @@ msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
 
-#: includes/admin/class-themezee-addons-page.php:43
-#: includes/admin/class-themezee-addons-page.php:113
-#: includes/admin/class-themezee-addons-page.php:118
-msgid "ThemeZee Add-ons"
+#: includes/admin/class-themezee-plugins-page.php:43
+#: includes/admin/class-themezee-plugins-page.php:44
+#: includes/admin/class-themezee-plugins-page.php:113
+#: includes/admin/class-themezee-plugins-page.php:118
+msgid "ThemeZee Plugins"
 msgstr ""
 
-#: includes/admin/class-themezee-addons-page.php:44
-msgid "Theme Add-ons"
+#: includes/admin/class-themezee-plugins-page.php:113
+msgid "plugins"
 msgstr ""
 
-#: includes/admin/class-themezee-addons-page.php:113
-msgid "add-ons"
-msgstr ""
-
-#: includes/admin/class-themezee-addons-page.php:120
+#: includes/admin/class-themezee-plugins-page.php:120
 #, php-format
 msgid ""
 "You need more features and functionality? Extend your website with our "
 "customized %s."
 msgstr ""
 
-#: includes/admin/class-themezee-addons-page.php:143
+#: includes/admin/class-themezee-plugins-page.php:143
 msgid "Overview"
 msgstr ""
 

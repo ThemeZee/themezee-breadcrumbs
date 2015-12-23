@@ -2,7 +2,7 @@
 /***
  * TZBC Settings Page Class
  *
- * Adds a new tab on the themezee addons page and displays the settings page.
+ * Adds a new tab on the themezee plugins page and displays the settings page.
  *
  * @package ThemeZee Breadcrumbs
  */
@@ -23,15 +23,15 @@ class TZBC_Settings_Page {
 	*/
 	static function setup() {
 		
-		// Add settings page to addon tabs
-		add_filter( 'themezee_addons_settings_tabs', array( __CLASS__, 'add_settings_page' ) );
+		// Add settings page to plugin tabs
+		add_filter( 'themezee_plugins_settings_tabs', array( __CLASS__, 'add_settings_page' ) );
 		
-		// Hook settings page to addon page
-		add_action( 'themezee_addons_page_breadcrumbs', array( __CLASS__, 'display_settings_page' ) );
+		// Hook settings page to plugin page
+		add_action( 'themezee_plugins_page_breadcrumbs', array( __CLASS__, 'display_settings_page' ) );
 	}
 
 	/**
-	 * Add settings page to tabs list on themezee add-on page
+	 * Add settings page to tabs list on themezee plugin page
 	 *
 	 * @return void
 	*/
@@ -57,7 +57,6 @@ class TZBC_Settings_Page {
 		<div id="tzbc-settings" class="tzbc-settings-wrap">
 			
 			<h1><?php esc_html_e( 'Breadcrumbs', 'themezee-breadcrumbs' ); ?></h1>
-			<?php settings_errors(); ?>
 			
 			<form class="tzbc-settings-form" method="post" action="options.php">
 				<?php
