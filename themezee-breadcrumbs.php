@@ -193,7 +193,7 @@ class ThemeZee_Breadcrumbs {
 			<dd>
 				<p><?php echo wp_kses_post( $plugin_data['Description'] ); ?><br/></p>
 				<a href="<?php echo admin_url( 'options-general.php?page=themezee-plugins&tab=breadcrumbs' ); ?>" class="button button-primary"><?php esc_html_e( 'Plugin Settings', 'themezee-breadcrumbs' ); ?></a>&nbsp;
-				<a href="<?php echo esc_url( 'https://themezee.com/docs/breadcrumbs/' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'View Documentation', 'themezee-breadcrumbs' ); ?></a>
+				<a href="<?php echo esc_url( 'https://themezee.com/docs/breadcrumbs-documentation/?utm_source=plugin-overview&utm_medium=button&utm_campaign=breadcrumbs&utm_content=documentation' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'View Documentation', 'themezee-breadcrumbs' ); ?></a>
 			</dd>
 		</dl>
 		
