@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: ThemeZee Breadcrumbs
-Plugin URI: http://themezee.com/plugins/breadcrumbs/
+Plugin URI: https://themezee.com/plugins/breadcrumbs/
 Description: This plugin allows you to add a nice and elegant breadcrumb navigation. Breadcrumbs make it easy for the user to navigate up and down the hierarchy of your website and are good for SEO.
 Author: ThemeZee
-Author URI: http://themezee.com/
+Author URI: https://themezee.com/
 Version: 1.0.1
 Text Domain: themezee-breadcrumbs
 Domain Path: /languages/
@@ -192,8 +192,8 @@ class ThemeZee_Breadcrumbs {
 			</dt>
 			<dd>
 				<p><?php echo wp_kses_post( $plugin_data['Description'] ); ?><br/></p>
-				<a href="<?php echo admin_url( 'admin.php?page=themezee-plugins&tab=breadcrumbs' ); ?>" class="button button-primary"><?php esc_html_e( 'Plugin Settings', 'themezee-breadcrumbs' ); ?></a>&nbsp;
-				<a href="<?php echo esc_url( 'http://themezee.com/docs/breadcrumbs/' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'View Documentation', 'themezee-breadcrumbs' ); ?></a>
+				<a href="<?php echo admin_url( 'options-general.php?page=themezee-plugins&tab=breadcrumbs' ); ?>" class="button button-primary"><?php esc_html_e( 'Plugin Settings', 'themezee-breadcrumbs' ); ?></a>&nbsp;
+				<a href="<?php echo esc_url( 'https://themezee.com/docs/breadcrumbs/' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'View Documentation', 'themezee-breadcrumbs' ); ?></a>
 			</dd>
 		</dl>
 		

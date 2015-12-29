@@ -1,6 +1,6 @@
 === ThemeZee Breadcrumbs ===
-Author URI: http://themezee.com
-Plugin URI: http://themezee.com/plugins/breadcrumbs/
+Author URI: https://themezee.com
+Plugin URI: https://themezee.com/plugins/breadcrumbs/
 Contributors: themezee
 Requires at least: 4.1
 Tested up to: 4.4
@@ -16,13 +16,13 @@ Breadcrumbs make it easy for the user to navigate up and down the hierarchy of y
 
 = Documentation =
 
-For detailed setup instructions, visit the official [Documentation](http://themezee.com/docs/breadcrumbs-documentation/) page
+For detailed setup instructions, visit the official [Documentation](https://themezee.com/docs/breadcrumbs-documentation/) page
 
 == Installation ==
 
 1. Activate the plugin
 2. Go to Settings > ThemeZee Plugins > Breadcrumbs and configure the plugin
-3. For detailed setup instructions, visit the official [Documentation](http://themezee.com/docs/breadcrumbs-documentation/) page
+3. For detailed setup instructions, visit the official [Documentation](https://themezee.com/docs/breadcrumbs-documentation/) page
 
 == Changelog ==
 

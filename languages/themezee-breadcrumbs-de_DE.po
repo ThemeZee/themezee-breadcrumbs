@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ThemeZee Breadcrumbs\n"
-"Report-Msgid-Bugs-To: http://themezee.com/\n"
+"Report-Msgid-Bugs-To: https://themezee.com/\n"
 "POT-Creation-Date: 2015-12-23 19:12+0100\n"
 "PO-Revision-Date: 2015-12-23 19:12+0100\n"
 "Last-Translator: \n"
