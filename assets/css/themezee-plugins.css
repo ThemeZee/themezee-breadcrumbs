@@ -38,6 +38,7 @@
 /* Plugin Overview List */
 #themezee-plugins-list {
 	margin-top: 30px;
+	margin-right: -20px;
 }
 
 #themezee-plugins-list dl {
@@ -48,6 +49,10 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+#themezee-plugins-list dl:nth-child(2n + 1) {
+	clear: left;
 }
 
 #themezee-plugins-list dt {
@@ -88,20 +93,42 @@
 	margin: 0 0 12px;
 }
 
+#themezee-plugins-list dd p cite {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+# Media Queries
+---------------------------------------------------------------- */
+
 /* Media Query | <1200px */
 @media only screen and (max-width: 1200px) {
 
 }
+
 /* Media Query | <980px */
 @media only screen and (max-width: 980px) {
 
 }
+
 /* Media Query | <782px */
 @media only screen and (max-width: 782px) {
 
-
 }
+
 /* Media Query | <600px */
 @media only screen and (max-width: 600px) {
-
+	
+	#themezee-plugins-list {
+		margin-top: 20px;
+		margin-right: 0;
+	}
+	
+	#themezee-plugins-list dl {
+		float: none;
+		padding: 0;
+		margin-bottom: 10px;
+		width: 100%;
+	}
+	
 }
