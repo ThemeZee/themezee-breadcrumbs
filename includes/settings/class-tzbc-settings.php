@@ -169,8 +169,7 @@ class TZBC_Settings {
 	 * @return void
 	*/
 	function license_section_intro() {
-		printf( __( 'Please enter your license key. An active license key is needed for automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'themezee-breadcrumbs' ), 'https://themezee.com/support/?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=breadcrumbs&utm_content=support' );
-
+		printf( __( 'Please activate your license in order to receive automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'themezee-breadcrumbs' ), 'https://themezee.com/support/?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=related-posts&utm_content=support' );
 	}
 	
 	/**
@@ -299,8 +298,8 @@ class TZBC_Settings {
 				'type' => 'checkbox',
 				'default' => false
 			),
-			'license_key' => array(
-				'name' => esc_html__( 'License Key', 'themezee-breadcrumbs' ),
+			'activate_license' => array(
+				'name' => esc_html__( 'Activate License', 'themezee-breadcrumbs' ),
 				'section' => 'license',
 				'type' => 'license',
 				'default' => ''
@@ -414,16 +413,10 @@ class TZBC_Settings {
 	 * @return void
 	 */
 	function license_callback( $args ) {
-
-		if ( isset( $this->options[ $args['id'] ] ) )
-			$value = $this->options[ $args['id'] ];
-		else
-			$value = isset( $args['default'] ) ? $args['default'] : '';
-
-		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
-		$html = '<input type="text" class="' . $size . '-text" id="tzbc_settings[' . $args['id'] . ']" name="tzbc_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/><br/><br/>';
+	
+		$html = '';
 		$license_status = $this->get( 'license_status' );
-		$license_key = ! empty( $value ) ? $value : false;
+		$license_key = TZBC_LICENSE;
 
 		if( 'valid' === $license_status && ! empty( $license_key ) ) {
 			$html .= '<input type="submit" class="button" name="tzbc_deactivate_license" value="' . esc_attr__( 'Deactivate License', 'themezee-breadcrumbs' ) . '"/>';
@@ -576,12 +569,8 @@ class TZBC_Settings {
 		if( ! isset( $_POST['tzbc_activate_license'] ) )
 			return;
 
-		if( ! isset( $_POST['tzbc_settings']['license_key'] ) )
-			return;
-
 		// retrieve the license from the database
 		$status  = $this->get( 'license_status' );
-		$license = trim( $_POST['tzbc_settings']['license_key'] );
 
 		if( 'valid' == $status )
 			return; // license already activated and valid
@@ -589,7 +578,7 @@ class TZBC_Settings {
 		// data to send in our API request
 		$api_params = array(
 			'edd_action'=> 'activate_license',
-			'license' 	=> $license,
+			'license' 	=> TZBC_LICENSE,
 			'item_name' => urlencode( TZBC_NAME ),
 			'item_id'   => TZBC_PRODUCT_ID,
 			'url'       => home_url()
@@ -610,7 +599,7 @@ class TZBC_Settings {
 		$options['license_status'] = $license_data->license;
 
 		update_option( 'tzbc_settings', $options );
-
+		
 		delete_transient( 'tzbc_license_check' );
 
 	}
@@ -628,37 +617,19 @@ class TZBC_Settings {
 		if( ! isset( $_POST['tzbc_deactivate_license'] ) )
 			return;
 
-		if( ! isset( $_POST['tzbc_settings']['license_key'] ) )
-			return;
-
-		// retrieve the license from the database
-		$license = trim( $_POST['tzbc_settings']['license_key'] );
-
-		// data to send in our API request
-		$api_params = array(
-			'edd_action'=> 'deactivate_license',
-			'license' 	=> $license,
-			'item_name' => urlencode( TZBC_NAME ),
-			'url'       => home_url()
-		);
-		
-		// Call the custom API.
-		$response = wp_remote_post( TZBC_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
-
-		// make sure the response came back okay
-		if ( is_wp_error( $response ) )
-			return false;
-
+		// Get Options
 		$options = $this->get_all();
 
+		// Set License Status to false
 		$options['license_status'] = 0;
 
+		// Update Option
 		update_option( 'tzbc_settings', $options );
-
+		
 		delete_transient( 'tzbc_license_check' );
 
 	}
-
+	
 	/**
 	 * Check license key
 	 *
@@ -678,8 +649,9 @@ class TZBC_Settings {
 			// data to send in our API request
 			$api_params = array(
 				'edd_action'=> 'check_license',
-				'license' 	=> $this->get( 'license_key' ),
+				'license' 	=> TZBC_LICENSE,
 				'item_name' => urlencode( TZBC_NAME ),
+				'item_id'   => TZBC_PRODUCT_ID,
 				'url'       => home_url()
 			);
 			
@@ -691,14 +663,18 @@ class TZBC_Settings {
 				return false;
 
 			$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+			
+			// Update License Status
+			if( $license_data->license <> 'valid' ) {
+				
+				$options = $this->get_all();
 
-			$options = $this->get_all();
+				$options['license_status'] = $license_data->license;
+				update_option( 'tzbc_settings', $options );
 
-			$options['license_status'] = $license_data->license;
-
-			update_option( 'tzbc_settings', $options );
-
-			set_transient( 'tzbc_license_check', $license_data->license, DAY_IN_SECONDS );
+				set_transient( 'tzbc_license_check', $license_data->license, DAY_IN_SECONDS );
+			
+			}
 
 			$status = $license_data->license;
 
@@ -706,15 +682,6 @@ class TZBC_Settings {
 
 		return $status;
 
-	}
-	
-	/**
-	 * Retrieve license status
-	 *
-	 * @return bool
-	*/
-	public function is_license_valid() {
-		return $this->check_license() == 'valid';
 	}
 
 }

@@ -5,7 +5,7 @@ Plugin URI: https://themezee.com/plugins/breadcrumbs/
 Description: This plugin allows you to add a nice and elegant breadcrumb navigation. Breadcrumbs make it easy for the user to navigate up and down the hierarchy of your website and are good for SEO.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 1.0.1
+Version: 1.0.2
 Text Domain: themezee-breadcrumbs
 Domain Path: /languages/
 License: GPL v3
@@ -66,13 +66,16 @@ class ThemeZee_Breadcrumbs {
 		define( 'TZBC_NAME', 'ThemeZee Breadcrumbs' );
 
 		// Define Version Number
-		define( 'TZBC_VERSION', '1.0.1' );
+		define( 'TZBC_VERSION', '1.0.2' );
 		
 		// Define Plugin Name
 		define( 'TZBC_PRODUCT_ID', 49729 );
 
 		// Define Update API URL
-		define( 'TZBC_STORE_API_URL', 'https://themezee.com' ); 
+		define( 'TZBC_STORE_API_URL', 'https://themezee.com' );
+		
+		// Define Plugin Name
+		define( 'TZBC_LICENSE', 'd2830f6767515a780ebd6530ed48d4c2' );
 
 		// Plugin Folder Path
 		define( 'TZBC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
@@ -209,19 +212,19 @@ class ThemeZee_Breadcrumbs {
 	
 		global $pagenow;
 	
-		// Display only on Plugins page
-		if ( 'plugins.php' !== $pagenow  ) {
+		// Display only on Plugins and Updates page
+		if ( ! ( 'plugins.php' == $pagenow or 'update-core.php' == $pagenow ) ) {
 			return;
 		}
 		
 		// Get Settings
 		$options = TZBC_Settings::instance();
 		
-		if( '' == $options->get( 'license_key' ) ) : ?>
+		if( 'valid' <> $options->get( 'license_status' ) ) : ?>
 			
 			<div class="updated">
 				<p>
-					<?php printf( __( 'Please enter your license key for the %1$s plugin in order to receive updates and support. <a href="%2$s">Enter License Key</a>', 'themezee-breadcrumbs' ),
+					<?php printf( __( 'Please activate your license for the %1$s plugin in order to receive updates and support. <a href="%2$s">Activate License</a>', 'themezee-breadcrumbs' ),
 						TZBC_NAME,
 						admin_url( 'options-general.php?page=themezee-plugins&tab=breadcrumbs' ) ); 
 					?>
@@ -246,14 +249,12 @@ class ThemeZee_Breadcrumbs {
 		
 		$options = TZBC_Settings::instance();
 
-		if( $options->get( 'license_key' ) <> '' ) :
-			
-			$license_key = $options->get( 'license_key' );
+		if( 'valid' == $options->get( 'license_status' ) ) :
 			
 			// setup the updater
 			$tzbc_updater = new TZBC_Plugin_Updater( TZBC_STORE_API_URL, __FILE__, array(
 					'version' 	=> TZBC_VERSION,
-					'license' 	=> $license_key,
+					'license' 	=> TZBC_LICENSE,
 					'item_name' => TZBC_NAME,
 					'item_id'   => TZBC_PRODUCT_ID,
 					'author' 	=> 'ThemeZee'
