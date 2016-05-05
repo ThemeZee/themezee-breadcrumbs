@@ -1090,7 +1090,7 @@ class TZBC_Breadcrumb_Trail {
 
 		// If we have parent terms, reverse the array to put them in the proper order for the trail.
 		if ( !empty( $parents ) )
-			$this->items = array_merge( $this->items, $parents );
+			$this->items = array_merge( $this->items, array_reverse( $parents ) );
 	}
 
 	/**
