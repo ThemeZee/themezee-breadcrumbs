@@ -8,8 +8,8 @@
  * @package ThemeZee Breadcrumbs
  */
 
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 
 /**
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @access public
  * @param  array $args Arguments to pass to TZBC_Breadcrumb_Trail.
- * @return void
+ * @return String $breadcrumb->trail Breadcrumb Menu
  */
 function themezee_breadcrumbs( $args = array() ) {
 

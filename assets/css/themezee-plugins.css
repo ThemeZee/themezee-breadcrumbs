@@ -1,17 +1,22 @@
+/***
+ * ThemeZee Plugins setting page
+ *
+ * @package ThemeZee Breadcrumbs
+ */
 
 /* Clearing Floats */
-.themezee-plugins-clearfix:before, 
-.themezee-plugins-clearfix:after {  
+.themezee-plugins-clearfix:before,
+.themezee-plugins-clearfix:after {
 	content: " ";
-	display: table;  
-}  
+	display: table;
+}
 
-.themezee-plugins-clearfix:after {  
+.themezee-plugins-clearfix:after {
 	clear: both;
-}  
+}
 
 .themezee-plugins-clearfix {
-    *zoom: 1; /* For IE 6/7 only */  
+	*zoom: 1; /* For IE 6/7 only */
 }
 
 /* Layout */
@@ -30,8 +35,8 @@
 .themezee-plugins-intro {
 	margin: 12px 0 16px;
 	font-size: 19px;
-    font-weight: 400;
-    line-height: 1.6em;
+	font-weight: 400;
+	line-height: 1.6em;
 	color: #777;
 }
 
@@ -57,9 +62,9 @@
 
 #themezee-plugins-list dt {
 	font-size: 14px;
-    line-height: 1.4em;
-    margin: 0;
-    padding: 8px 12px;
+	line-height: 1.4em;
+	margin: 0;
+	padding: 8px 12px;
 	background: #fff;
 	color: #222;
 	border: 1px solid #e5e5e5;
@@ -83,7 +88,7 @@
 	margin: 0;
 	padding: 12px;
 	font-size: 14px;
-    line-height: 1.4em;
+	line-height: 1.4em;
 	background: #fff;
 	border: 1px solid #e5e5e5;
 	border-top: none;
@@ -118,17 +123,17 @@
 
 /* Media Query | <600px */
 @media only screen and (max-width: 600px) {
-	
+
 	#themezee-plugins-list {
 		margin-top: 20px;
 		margin-right: 0;
 	}
-	
+
 	#themezee-plugins-list dl {
 		float: none;
 		padding: 0;
 		margin-bottom: 10px;
 		width: 100%;
 	}
-	
+
 }
