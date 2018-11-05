@@ -5,20 +5,21 @@ Plugin URI: https://themezee.com/plugins/breadcrumbs/
 Description: This plugin allows you to add a nice and elegant breadcrumb navigation. Breadcrumbs make it easy for the user to navigate up and down the hierarchy of your website and are good for SEO.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 1.0.3
+Version: 1.0.4
 Text Domain: themezee-breadcrumbs
 Domain Path: /languages/
-License: GPL v3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ThemeZee Breadcrumbs
-Copyright(C) 2015, ThemeZee.com - support@themezee.com
+Copyright(C) 2018, ThemeZee.com - support@themezee.com
 
 */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Main ThemeZee_Breadcrumbs Class
@@ -26,7 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * @package ThemeZee Breadcrumbs
  */
 class ThemeZee_Breadcrumbs {
-
 	/**
 	 * Call all Functions to setup the Plugin
 	 *
@@ -48,7 +48,6 @@ class ThemeZee_Breadcrumbs {
 
 		// Setup Action Hooks.
 		self::setup_actions();
-
 	}
 
 	/**
@@ -62,7 +61,7 @@ class ThemeZee_Breadcrumbs {
 		define( 'TZBC_NAME', 'ThemeZee Breadcrumbs' );
 
 		// Define Version Number.
-		define( 'TZBC_VERSION', '1.0.3' );
+		define( 'TZBC_VERSION', '1.0.4' );
 
 		// Define Plugin Name.
 		define( 'TZBC_PRODUCT_ID', 49729 );
@@ -81,7 +80,6 @@ class ThemeZee_Breadcrumbs {
 
 		// Plugin Root File.
 		define( 'TZBC_PLUGIN_FILE', __FILE__ );
-
 	}
 
 	/**
@@ -90,9 +88,7 @@ class ThemeZee_Breadcrumbs {
 	 * @return void
 	 */
 	static function translation() {
-
 		load_plugin_textdomain( 'themezee-breadcrumbs', false, dirname( plugin_basename( TZBC_PLUGIN_FILE ) ) . '/languages/' );
-
 	}
 
 	/**
@@ -113,7 +109,6 @@ class ThemeZee_Breadcrumbs {
 		// Include Breadcrumb Files.
 		require_once TZBC_PLUGIN_DIR . '/includes/class-tzbc-breadcrumb-trail.php';
 		require_once TZBC_PLUGIN_DIR . '/includes/breadcrumbs-setup.php';
-
 	}
 
 	/**
@@ -138,7 +133,6 @@ class ThemeZee_Breadcrumbs {
 
 		// Add automatic plugin updater from ThemeZee Store API.
 		add_action( 'admin_init', array( __CLASS__, 'plugin_updater' ), 0 );
-
 	}
 
 	/**
@@ -155,7 +149,6 @@ class ThemeZee_Breadcrumbs {
 
 		// Enqueue Plugin Stylesheet.
 		wp_enqueue_style( 'themezee-breadcrumbs', TZBC_PLUGIN_URL . 'assets/css/themezee-breadcrumbs.css', array(), TZBC_VERSION );
-
 	}
 
 	/**
@@ -183,7 +176,7 @@ class ThemeZee_Breadcrumbs {
 		<dl>
 			<dt>
 				<h4><?php echo esc_html( $plugin_data['Name'] ); ?></h4>
-				<span><?php printf( esc_html__( 'Version %s', 'themezee-breadcrumbs' ),  esc_html( $plugin_data['Version'] ) ); ?></span>
+				<span><?php printf( esc_html__( 'Version %s', 'themezee-breadcrumbs' ), esc_html( $plugin_data['Version'] ) ); ?></span>
 			</dt>
 			<dd>
 				<p><?php echo wp_kses_post( $plugin_data['Description'] ); ?><br/></p>
@@ -192,7 +185,7 @@ class ThemeZee_Breadcrumbs {
 			</dd>
 		</dl>
 
-	<?php
+		<?php
 	}
 
 	/**
@@ -201,7 +194,6 @@ class ThemeZee_Breadcrumbs {
 	 * @return void
 	 */
 	static function license_key_admin_notice() {
-
 		global $pagenow;
 
 		// Display only on Plugins and Updates page.
@@ -212,20 +204,22 @@ class ThemeZee_Breadcrumbs {
 		// Get Settings.
 		$options = TZBC_Settings::instance();
 
-		if ( 'valid' !== $options->get( 'license_status' ) ) : ?>
+		if ( 'valid' !== $options->get( 'license_status' ) ) :
+			?>
 
 			<div class="updated">
 				<p>
-					<?php printf( __( 'Please activate your license for the %1$s plugin in order to receive updates and support. <a href="%2$s">Activate License</a>', 'themezee-breadcrumbs' ),
+					<?php
+					printf( __( 'Please activate your license for the %1$s plugin in order to receive updates and support. <a href="%2$s">Activate License</a>', 'themezee-breadcrumbs' ),
 						TZBC_NAME,
-					admin_url( 'options-general.php?page=themezee-plugins&tab=breadcrumbs' ) );
+						admin_url( 'options-general.php?page=themezee-plugins&tab=breadcrumbs' )
+					);
 					?>
 				</p>
 			</div>
 
-		<?php
+			<?php
 		endif;
-
 	}
 
 	/**
@@ -245,16 +239,14 @@ class ThemeZee_Breadcrumbs {
 
 			// Setup the updater.
 			$tzbc_updater = new TZBC_Plugin_Updater( TZBC_STORE_API_URL, __FILE__, array(
-				'version' 	=> TZBC_VERSION,
-				'license' 	=> TZBC_LICENSE,
+				'version'   => TZBC_VERSION,
+				'license'   => TZBC_LICENSE,
 				'item_name' => TZBC_NAME,
 				'item_id'   => TZBC_PRODUCT_ID,
-				'author' 	=> 'ThemeZee',
-				)
-			);
+				'author'    => 'ThemeZee',
+			) );
 
 		endif;
-
 	}
 }
 

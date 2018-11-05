@@ -10,7 +10,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * TZBC Settings Class
@@ -55,7 +57,7 @@ class TZBC_Settings {
 		add_action( 'admin_init', array( $this, 'check_license' ) );
 
 		// Merge Plugin Options Array from Database with Default Settings Array.
-		$this->options = wp_parse_args( get_option( 'tzbc_settings' , array() ), $this->default_settings() );
+		$this->options = wp_parse_args( get_option( 'tzbc_settings', array() ), $this->default_settings() );
 	}
 
 	/**
@@ -128,7 +130,7 @@ class TZBC_Settings {
 		// Add Settings.
 		foreach ( $this->get_registered_settings() as $key => $option ) :
 
-			$name = isset( $option['name'] ) ? $option['name'] : '';
+			$name    = isset( $option['name'] ) ? $option['name'] : '';
 			$section = isset( $option['section'] ) ? $option['section'] : 'widgets';
 
 			add_settings_field(
@@ -146,7 +148,7 @@ class TZBC_Settings {
 					'min'     => isset( $option['min'] ) ? $option['min'] : null,
 					'step'    => isset( $option['step'] ) ? $option['step'] : null,
 					'options' => isset( $option['options'] ) ? $option['options'] : '',
-					'default'     => isset( $option['default'] ) ? $option['default'] : '',
+					'default' => isset( $option['default'] ) ? $option['default'] : '',
 				)
 			);
 
@@ -162,7 +164,7 @@ class TZBC_Settings {
 	 * @return void
 	 */
 	function license_section_intro() {
-		printf( __( 'Please activate your license in order to receive automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'themezee-breadcrumbs' ), 'https://themezee.com/support/?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=related-posts&utm_content=support' );
+		printf( __( 'Please activate your license in order to receive automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'themezee-breadcrumbs' ), 'https://themezee.com/support/?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=breadcrumbs&utm_content=support' );
 	}
 
 	/**
@@ -183,7 +185,7 @@ class TZBC_Settings {
 		}
 
 		$settings = $this->get_registered_settings();
-		$input = $input ? $input : array();
+		$input    = $input ? $input : array();
 
 		// Loop through each setting being saved and pass it through a sanitization filter.
 		foreach ( $input as $key => $value ) :
@@ -199,7 +201,7 @@ class TZBC_Settings {
 			elseif ( 'radio' === $type or 'select' === $type ) :
 
 				$available_options = array_keys( $settings[ $key ]['options'] );
-				$input[ $key ] = in_array( $value, $available_options, true ) ? $value : $settings[ $key ]['default'];
+				$input[ $key ]     = in_array( $value, $available_options, true ) ? $value : $settings[ $key ]['default'];
 
 			elseif ( 'number' === $type ) :
 
@@ -261,40 +263,40 @@ class TZBC_Settings {
 
 		$settings = array(
 			'browse_text' => array(
-				'name' => esc_html__( 'Browse Text', 'themezee-breadcrumbs' ),
-				'desc' => esc_html__( 'Enter the text which is displayed before the breadcrumb list. ', 'themezee-breadcrumbs' ),
+				'name'    => esc_html__( 'Browse Text', 'themezee-breadcrumbs' ),
+				'desc'    => esc_html__( 'Enter the text which is displayed before the breadcrumb list. ', 'themezee-breadcrumbs' ),
 				'section' => 'general',
-				'type' => 'text',
-				'size' => 'regular',
+				'type'    => 'text',
+				'size'    => 'regular',
 				'default' => esc_html__( 'You are here: ', 'themezee-breadcrumbs' ),
 			),
 			'separator' => array(
-				'name' => esc_html__( 'Link Separator', 'themezee-breadcrumbs' ),
-				'desc' => esc_html__( 'Select the separator of the breadcrumb items.', 'themezee-breadcrumbs' ),
+				'name'    => esc_html__( 'Link Separator', 'themezee-breadcrumbs' ),
+				'desc'    => esc_html__( 'Select the separator of the breadcrumb items.', 'themezee-breadcrumbs' ),
 				'section' => 'general',
-				'type' => 'select',
+				'type'    => 'select',
 				'options' => array(
-					'slash' => '/',
-					'dash' => '&ndash;',
-					'bull' => '&bull;',
+					'slash'         => '/',
+					'dash'          => '&ndash;',
+					'bull'          => '&bull;',
 					'arrow-bracket' => '&gt;',
-					'raquo' => '&raquo;',
-					'single-arrow' => '&rarr;',
-					'double-arrow' => '&rArr;',
+					'raquo'         => '&raquo;',
+					'single-arrow'  => '&rarr;',
+					'double-arrow'  => '&rArr;',
 				),
 				'default' => 'raquo',
 			),
 			'front_page' => array(
-				'name' => esc_html__( 'Front Page', 'themezee-breadcrumbs' ),
-				'desc' => esc_html__( 'Display breadcrumb list on front page.', 'themezee-breadcrumbs' ),
+				'name'    => esc_html__( 'Front Page', 'themezee-breadcrumbs' ),
+				'desc'    => esc_html__( 'Display breadcrumb list on front page.', 'themezee-breadcrumbs' ),
 				'section' => 'general',
-				'type' => 'checkbox',
+				'type'    => 'checkbox',
 				'default' => false,
 			),
 			'activate_license' => array(
-				'name' => esc_html__( 'Activate License', 'themezee-breadcrumbs' ),
+				'name'    => esc_html__( 'Activate License', 'themezee-breadcrumbs' ),
 				'section' => 'license',
-				'type' => 'license',
+				'type'    => 'license',
 				'default' => '',
 			),
 		);
@@ -315,7 +317,7 @@ class TZBC_Settings {
 
 		$checked = isset( $this->options[ $args['id'] ] ) ? checked( 1, $this->options[ $args['id'] ], false ) : '';
 		$html = '<input type="checkbox" id="tzbc_settings[' . $args['id'] . ']" name="tzbc_settings[' . $args['id'] . ']" value="1" ' . $checked . '/>';
-		$html .= '<label for="tzbc_settings[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
+		$html .= '<label for="tzbc_settings[' . $args['id'] . ']"> ' . $args['desc'] . '</label>';
 
 		echo $html;
 	}
@@ -360,7 +362,7 @@ class TZBC_Settings {
 
 		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
 		$html = '<input type="text" class="' . $size . '-text" id="tzbc_settings[' . $args['id'] . ']" name="tzbc_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/>';
-		$html .= '<p class="description">'  . $args['desc'] . '</p>';
+		$html .= '<p class="description">' . $args['desc'] . '</p>';
 
 		echo $html;
 	}
@@ -413,7 +415,13 @@ class TZBC_Settings {
 			$html .= '<input type="submit" class="button" name="tzbc_deactivate_license" value="' . esc_attr__( 'Deactivate License', 'themezee-breadcrumbs' ) . '"/>';
 			$html .= '<span style="display: inline-block; padding: 5px; color: green;">&nbsp;' . esc_html__( 'Your license is valid!', 'themezee-breadcrumbs' ) . '</span>';
 		} elseif ( 'expired' === $license_status && ! empty( $license_key ) ) {
-			$renewal_url = esc_url( add_query_arg( array( 'edd_license_key' => $license_key, 'download_id' => TZBC_PRODUCT_ID ), 'https://themezee.com/checkout' ) );
+			$renewal_url = esc_url( add_query_arg(
+				array(
+					'edd_license_key' => $license_key,
+					'download_id'     => TZBC_PRODUCT_ID,
+				),
+				'https://themezee.com/checkout'
+			) );
 			$html .= '<a href="' . esc_url( $renewal_url ) . '" class="button-primary">' . esc_html__( 'Renew Your License', 'themezee-breadcrumbs' ) . '</a>';
 			$html .= '<br/><span style="display: inline-block; padding: 5px; color: red;">&nbsp;' . esc_html__( 'Your license has expired, renew today to continue getting updates and support!', 'themezee-breadcrumbs' ) . '</span>';
 		} elseif ( 'invalid' === $license_status && ! empty( $license_key ) ) {
@@ -423,7 +431,7 @@ class TZBC_Settings {
 			$html .= '<input type="submit" class="button" name="tzbc_activate_license" value="' . esc_attr__( 'Activate License', 'themezee-breadcrumbs' ) . '"/>';
 		}
 
-		$html .= '<p class="description">'  . $args['desc'] . '</p>';
+		$html .= '<p class="description">' . $args['desc'] . '</p>';
 
 		echo $html;
 	}
@@ -451,7 +459,7 @@ class TZBC_Settings {
 
 		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
 		$html = '<input type="number" step="' . esc_attr( $step ) . '" max="' . esc_attr( $max ) . '" min="' . esc_attr( $min ) . '" class="' . $size . '-text" id="tzbc_settings[' . $args['id'] . ']" name="tzbc_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/>';
-		$html .= '<p class="description">'  . $args['desc'] . '</p>';
+		$html .= '<p class="description">' . $args['desc'] . '</p>';
 
 		echo $html;
 	}
@@ -475,7 +483,7 @@ class TZBC_Settings {
 
 		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
 		$html = '<textarea class="' . $size . '-text" cols="20" rows="5" id="tzbc_settings_' . $args['id'] . '" name="tzbc_settings[' . $args['id'] . ']">' . esc_textarea( stripslashes( $value ) ) . '</textarea>';
-		$html .= '<p class="description">'  . $args['desc'] . '</p>';
+		$html .= '<p class="description">' . $args['desc'] . '</p>';
 
 		echo $html;
 	}
@@ -499,7 +507,7 @@ class TZBC_Settings {
 
 		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
 		$html = '<textarea class="' . $size . '-text" cols="20" rows="5" id="tzbc_settings_' . $args['id'] . '" name="tzbc_settings[' . $args['id'] . ']">' . esc_textarea( stripslashes( $value ) ) . '</textarea>';
-		$html .= '<p class="description">'  . $args['desc'] . '</p>';
+		$html .= '<p class="description">' . $args['desc'] . '</p>';
 
 		echo $html;
 	}
@@ -541,7 +549,7 @@ class TZBC_Settings {
 		endforeach;
 
 		$html .= '</select>';
-		$html .= '<p class="description">'  . $args['desc'] . '</p>';
+		$html .= '<p class="description">' . $args['desc'] . '</p>';
 
 		echo $html;
 	}
@@ -571,10 +579,10 @@ class TZBC_Settings {
 		// Data to send in our API request.
 		$api_params = array(
 			'edd_action' => 'activate_license',
-			'license' 	=> TZBC_LICENSE,
-			'item_name' => urlencode( TZBC_NAME ),
-			'item_id'   => TZBC_PRODUCT_ID,
-			'url'       => home_url(),
+			'license'    => TZBC_LICENSE,
+			'item_name'  => urlencode( TZBC_NAME ),
+			'item_id'    => TZBC_PRODUCT_ID,
+			'url'        => home_url(),
 		);
 
 		// Call the custom API.
@@ -616,7 +624,7 @@ class TZBC_Settings {
 		$options = $this->get_all();
 
 		// Set License Status to false.
-		$options['license_status'] = 0;
+		$options['license_status'] = 'inactive';
 
 		// Update Option.
 		update_option( 'tzbc_settings', $options );
@@ -640,37 +648,42 @@ class TZBC_Settings {
 		// Run the license check a maximum of once per day.
 		if ( false === $status ) {
 
-			// Data to send in our API request.
-			$api_params = array(
-				'edd_action' => 'check_license',
-				'license' 	=> TZBC_LICENSE,
-				'item_name' => urlencode( TZBC_NAME ),
-				'item_id'   => TZBC_PRODUCT_ID,
-				'url'       => home_url(),
-			);
+			$options = $this->get_all();
 
-			// Call the custom API.
-			$response = wp_remote_post( TZBC_STORE_API_URL, array( 'timeout' => 25, 'sslverify' => true, 'body' => $api_params ) );
+			if ( 'inactive' !== $options['license_status'] ) {
 
-			// Make sure the response came back okay.
-			if ( is_wp_error( $response ) ) {
-				return false;
-			}
+				// Data to send in our API request.
+				$api_params = array(
+					'edd_action' => 'check_license',
+					'license'    => TZBC_LICENSE,
+					'item_name'  => urlencode( TZBC_NAME ),
+					'item_id'    => TZBC_PRODUCT_ID,
+					'url'        => home_url(),
+				);
 
-			$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+				// Call the custom API.
+				$response = wp_remote_post( TZBC_STORE_API_URL, array( 'timeout' => 25, 'sslverify' => true, 'body' => $api_params ) );
 
-			// Update License Status.
-			if ( 'valid' !== $license_data->license ) {
+				// Make sure the response came back okay.
+				if ( is_wp_error( $response ) ) {
+					return false;
+				}
 
-				$options = $this->get_all();
+				$license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
-				$options['license_status'] = $license_data->license;
+				$status = $license_data->license;
+
+				// Update Options.
+				$options['license_status'] = $status;
 				update_option( 'tzbc_settings', $options );
 
-				set_transient( 'tzbc_license_check', $license_data->license, DAY_IN_SECONDS );
+			} else {
+
+				$status = 'inactive';
+
 			}
 
-			$status = $license_data->license;
+			set_transient( 'tzbc_license_check', $status, DAY_IN_SECONDS );
 		}
 
 		return $status;
