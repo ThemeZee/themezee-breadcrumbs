@@ -1,0 +1,16 @@
+{
+  "name": "themezee-breadcrumbs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "export": "git archive HEAD -9 --prefix themezee-breadcrumbs/ --format=zip > ../../themezee-breadcrumbs.zip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ThemeZee@bitbucket.org/ThemeZee/themezee-breadcrumbs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ThemeZee/themezee-breadcrumbs#readme"
+}
