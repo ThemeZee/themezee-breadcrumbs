@@ -992,8 +992,8 @@ class TZBC_Breadcrumb_Trail {
 		if ( $terms && ! is_wp_error( $terms ) ) {
 
 			// Sort the terms by ID and get the first category.
-			usort( $terms, '_usort_terms_by_ID' );
-			$term = get_term( $terms[0], $taxonomy );
+			$terms = wp_list_sort( $terms );
+			$term  = get_term( $terms[0], $taxonomy );
 
 			// If the category has a parent, add the hierarchy to the trail.
 			if ( 0 < $term->parent )

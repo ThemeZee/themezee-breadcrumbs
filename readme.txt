@@ -2,9 +2,9 @@
 Author URI: https://themezee.com
 Plugin URI: https://themezee.com/plugins/breadcrumbs/
 Contributors: themezee
-Requires at least: 4.1
-Tested up to: 5.0
-Stable tag: 1.0.4
+Requires at least: 4.7
+Tested up to: 5.3
+Stable tag: 1.0.5
 License: GPLv2 or later
 
 The *ThemeZee Breadcrumbs* plugin allows you to add a nice and elegant breadcrumb navigation
@@ -25,6 +25,10 @@ For detailed setup instructions, visit the official [Documentation](https://them
 3. For detailed setup instructions, visit the official [Documentation](https://themezee.com/docs/breadcrumbs-documentation/) page
 
 == Changelog ==
+
+= 1.0.5 =
+
+* replaced deprecated function _usort_terms_by_ID()
 
 = 1.0.4 =
 
