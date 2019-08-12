@@ -9,8 +9,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Shows a breadcrumb for all types of pages.  This is a wrapper function for the TZBC_Breadcrumb_Trail class,
@@ -21,7 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * @return String $breadcrumb->trail Breadcrumb Menu
  */
 function themezee_breadcrumbs( $args = array() ) {
-
 	$breadcrumb = new TZBC_Breadcrumb_Trail( $args );
 
 	return $breadcrumb->trail();

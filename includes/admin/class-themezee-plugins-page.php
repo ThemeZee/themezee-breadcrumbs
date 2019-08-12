@@ -8,8 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // Use class to avoid namespace collisions.
 if ( ! class_exists( 'ThemeZee_Plugins_Page' ) ) :
@@ -71,7 +72,7 @@ if ( ! class_exists( 'ThemeZee_Plugins_Page' ) ) :
 
 						$tab_url = add_query_arg( array(
 							'settings-updated' => false,
-							'tab' => $tab_id,
+							'tab'              => $tab_id,
 						) );
 
 						$active = $active_tab === $tab_id ? ' nav-tab-active' : '';
@@ -97,13 +98,14 @@ if ( ! class_exists( 'ThemeZee_Plugins_Page' ) ) :
 
 						do_action( 'themezee_plugins_page_' . $active_tab );
 
-					endif; ?>
+					endif;
+					?>
 
 				</div>
 
 			</div>
 
-		<?php
+			<?php
 		}
 
 		/**
@@ -113,7 +115,7 @@ if ( ! class_exists( 'ThemeZee_Plugins_Page' ) ) :
 		 */
 		static function display_overview_page() {
 
-			$plugin_link = '<a target="_blank" href="https://themezee.com/plugins/?utm_source=plugin-overview&utm_medium=teaser&utm_campaign=plugins" title="'. esc_html__( 'ThemeZee Plugins', 'themezee-breadcrumbs' ) . '">'. esc_html__( 'plugins', 'themezee-breadcrumbs' ) . '</a>';
+			$plugin_link = '<a target="_blank" href="https://themezee.com/plugins/?utm_source=plugin-overview&utm_medium=teaser&utm_campaign=plugins" title="' . esc_html__( 'ThemeZee Plugins', 'themezee-breadcrumbs' ) . '">' . esc_html__( 'plugins', 'themezee-breadcrumbs' ) . '</a>';
 			?>
 
 			<div id="themezee-plugins-overview">
@@ -136,7 +138,7 @@ if ( ! class_exists( 'ThemeZee_Plugins_Page' ) ) :
 
 			</div>
 
-		<?php
+			<?php
 		}
 
 		/**

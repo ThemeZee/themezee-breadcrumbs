@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * TZBC Settings Page Class
@@ -50,7 +52,6 @@ class TZBC_Settings_Page {
 	 * @return void
 	 */
 	static function display_settings_page() {
-
 		ob_start();
 		?>
 
