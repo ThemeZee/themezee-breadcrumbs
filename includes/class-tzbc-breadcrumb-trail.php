@@ -482,7 +482,9 @@ class TZBC_Breadcrumb_Trail {
 		}
 
 		// End with the post title.
-		if ( $post_title = single_post_title( '', false ) ) {
+		$post_title = single_post_title( '', false );
+
+		if ( '' !== $post_title ) {
 
 			if ( 1 < get_query_var( 'page' ) || is_paged() ) {
 				$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), $post_title );
@@ -767,7 +769,17 @@ class TZBC_Breadcrumb_Trail {
 
 		// Add the week item.
 		if ( is_paged() ) {
-			$this->items[] = esc_url( get_archives_link( add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url() ), $week, false ) );
+			$this->items[] = esc_url( get_archives_link(
+				add_query_arg(
+					array(
+						'm' => get_the_time( 'Y' ),
+						'w' => get_the_time( 'W' ),
+					),
+					home_url()
+				),
+				$week,
+				false
+			) );
 
 		} elseif ( true === $this->args['show_title'] ) {
 			$this->items[] = $week;
