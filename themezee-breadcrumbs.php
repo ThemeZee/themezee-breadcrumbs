@@ -61,7 +61,7 @@ class ThemeZee_Breadcrumbs {
 		define( 'TZBC_NAME', 'ThemeZee Breadcrumbs' );
 
 		// Define Version Number.
-		define( 'TZBC_VERSION', '1.0.5' );
+		define( 'TZBC_VERSION', '1.1' );
 
 		// Define Plugin Name.
 		define( 'TZBC_PRODUCT_ID', 49729 );
