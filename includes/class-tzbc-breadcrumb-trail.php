@@ -570,7 +570,7 @@ class TZBC_Breadcrumb_Trail {
 		}
 
 		// If there's a single post type for the taxonomy, use it.
-		if ( false === $done_post_type && 1 === count( $taxonomy->object_type ) && post_type_exists( $taxonomy->object_type[0] ) ) {
+		if ( false === $done_post_type && 1 === count( (array) $taxonomy->object_type ) && post_type_exists( $taxonomy->object_type[0] ) ) {
 
 			// If the post type is 'post'.
 			if ( 'post' === $taxonomy->object_type[0] ) {

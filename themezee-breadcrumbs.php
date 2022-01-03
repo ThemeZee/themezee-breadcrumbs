@@ -5,7 +5,7 @@ Plugin URI: https://themezee.com/plugins/breadcrumbs/
 Description: This plugin allows you to add a nice and elegant breadcrumb navigation. Breadcrumbs make it easy for the user to navigate up and down the hierarchy of your website and are good for SEO.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 1.1
+Version: 1.1.1
 Text Domain: themezee-breadcrumbs
 Domain Path: /languages/
 License: GNU General Public License v2 or later
@@ -61,7 +61,7 @@ class ThemeZee_Breadcrumbs {
 		define( 'TZBC_NAME', 'ThemeZee Breadcrumbs' );
 
 		// Define Version Number.
-		define( 'TZBC_VERSION', '1.1' );
+		define( 'TZBC_VERSION', '1.1.1' );
 
 		// Define Plugin Name.
 		define( 'TZBC_PRODUCT_ID', 49729 );
