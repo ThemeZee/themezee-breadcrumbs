@@ -1,0 +1,17 @@
+{
+    "name": "themezee/themezee-breadcrumbs",
+    "type": "wordpress-plugin",
+    "description": "This plugin allows you to add a nice and elegant breadcrumb navigation. Breadcrumbs make it easy for the user to navigate up and down the hierarchy of your website and are good for SEO.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "ThemeZee",
+            "email": "contact@themezee.com",
+            "homepage": "https://themezee.com/",
+            "role": "Company"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    }
+}
