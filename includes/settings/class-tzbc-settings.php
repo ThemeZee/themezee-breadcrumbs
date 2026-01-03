@@ -87,28 +87,12 @@ class TZBC_Settings {
 	 * @return array
 	 */
 	public function default_settings() {
-
-		$default_settings = array();
-
-		foreach ( $this->get_registered_settings() as $key => $option ) :
-
-			if ( 'multicheck' === $option['type'] ) :
-
-				foreach ( $option['options'] as $index => $value ) :
-
-					$default_settings[ $key ][ $index ] = isset( $option['default'] ) ? $option['default'] : false;
-
-				endforeach;
-
-			else :
-
-				$default_settings[ $key ] = isset( $option['default'] ) ? $option['default'] : false;
-
-			endif;
-
-		endforeach;
-
-		return $default_settings;
+		return [
+			'browse_text' => '',
+			'separator' => 'raquo',
+			'front_page' => false,
+			'activate_license' => '',
+		];
 	}
 
 	/**

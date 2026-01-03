@@ -3,8 +3,8 @@ Author URI: https://themezee.com
 Plugin URI: https://themezee.com/plugins/breadcrumbs/
 Contributors: themezee
 Requires at least: 4.7
-Tested up to: 5.8
-Stable tag: 1.1.1
+Tested up to: 6.9
+Stable tag: 1.1.2
 License: GPLv2 or later
 
 The *ThemeZee Breadcrumbs* plugin allows you to add a nice and elegant breadcrumb navigation
@@ -25,6 +25,10 @@ For detailed setup instructions, visit the official [Documentation](https://them
 3. For detailed setup instructions, visit the official [Documentation](https://themezee.com/docs/breadcrumbs-documentation/) page
 
 == Changelog ==
+
+= 1.1.2 =
+
+* Fix PHP notice about _load_textdomain_just_in_time called too early
 
 = 1.1.1 =
 
